@@ -1,0 +1,590 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BB2726B426A1C371003BA560 /* DSP_PlaygroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2726B326A1C371003BA560 /* DSP_PlaygroundApp.swift */; };
+		BB2726B626A1C371003BA560 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2726B526A1C371003BA560 /* ContentView.swift */; };
+		BB2726B826A1C375003BA560 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB2726B726A1C375003BA560 /* Assets.xcassets */; };
+		BB2726BB26A1C375003BA560 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB2726BA26A1C375003BA560 /* Preview Assets.xcassets */; };
+		BB2726C726A1C375003BA560 /* DSP_PlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2726C626A1C375003BA560 /* DSP_PlaygroundTests.swift */; };
+		BB2726D226A1C375003BA560 /* DSP_PlaygroundUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2726D126A1C375003BA560 /* DSP_PlaygroundUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BB2726C326A1C375003BA560 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB2726A826A1C371003BA560 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB2726AF26A1C371003BA560;
+			remoteInfo = "DSP Playground";
+		};
+		BB2726CE26A1C375003BA560 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB2726A826A1C371003BA560 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB2726AF26A1C371003BA560;
+			remoteInfo = "DSP Playground";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BB2726B026A1C371003BA560 /* DSP Playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DSP Playground.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB2726B326A1C371003BA560 /* DSP_PlaygroundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSP_PlaygroundApp.swift; sourceTree = "<group>"; };
+		BB2726B526A1C371003BA560 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BB2726B726A1C375003BA560 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BB2726BA26A1C375003BA560 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BB2726BC26A1C375003BA560 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB2726BD26A1C375003BA560 /* DSP_Playground.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DSP_Playground.entitlements; sourceTree = "<group>"; };
+		BB2726C226A1C375003BA560 /* DSP PlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DSP PlaygroundTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB2726C626A1C375003BA560 /* DSP_PlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSP_PlaygroundTests.swift; sourceTree = "<group>"; };
+		BB2726C826A1C375003BA560 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB2726CD26A1C375003BA560 /* DSP PlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DSP PlaygroundUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB2726D126A1C375003BA560 /* DSP_PlaygroundUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSP_PlaygroundUITests.swift; sourceTree = "<group>"; };
+		BB2726D326A1C375003BA560 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BB2726AD26A1C371003BA560 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB2726BF26A1C375003BA560 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB2726CA26A1C375003BA560 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BB2726A726A1C371003BA560 = {
+			isa = PBXGroup;
+			children = (
+				BB2726B226A1C371003BA560 /* DSP Playground */,
+				BB2726C526A1C375003BA560 /* DSP PlaygroundTests */,
+				BB2726D026A1C375003BA560 /* DSP PlaygroundUITests */,
+				BB2726B126A1C371003BA560 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BB2726B126A1C371003BA560 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BB2726B026A1C371003BA560 /* DSP Playground.app */,
+				BB2726C226A1C375003BA560 /* DSP PlaygroundTests.xctest */,
+				BB2726CD26A1C375003BA560 /* DSP PlaygroundUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BB2726B226A1C371003BA560 /* DSP Playground */ = {
+			isa = PBXGroup;
+			children = (
+				BB2726B326A1C371003BA560 /* DSP_PlaygroundApp.swift */,
+				BB2726B526A1C371003BA560 /* ContentView.swift */,
+				BB2726B726A1C375003BA560 /* Assets.xcassets */,
+				BB2726BC26A1C375003BA560 /* Info.plist */,
+				BB2726BD26A1C375003BA560 /* DSP_Playground.entitlements */,
+				BB2726B926A1C375003BA560 /* Preview Content */,
+			);
+			path = "DSP Playground";
+			sourceTree = "<group>";
+		};
+		BB2726B926A1C375003BA560 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BB2726BA26A1C375003BA560 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BB2726C526A1C375003BA560 /* DSP PlaygroundTests */ = {
+			isa = PBXGroup;
+			children = (
+				BB2726C626A1C375003BA560 /* DSP_PlaygroundTests.swift */,
+				BB2726C826A1C375003BA560 /* Info.plist */,
+			);
+			path = "DSP PlaygroundTests";
+			sourceTree = "<group>";
+		};
+		BB2726D026A1C375003BA560 /* DSP PlaygroundUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BB2726D126A1C375003BA560 /* DSP_PlaygroundUITests.swift */,
+				BB2726D326A1C375003BA560 /* Info.plist */,
+			);
+			path = "DSP PlaygroundUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BB2726AF26A1C371003BA560 /* DSP Playground */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB2726D626A1C375003BA560 /* Build configuration list for PBXNativeTarget "DSP Playground" */;
+			buildPhases = (
+				BB2726AC26A1C371003BA560 /* Sources */,
+				BB2726AD26A1C371003BA560 /* Frameworks */,
+				BB2726AE26A1C371003BA560 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DSP Playground";
+			productName = "DSP Playground";
+			productReference = BB2726B026A1C371003BA560 /* DSP Playground.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BB2726C126A1C375003BA560 /* DSP PlaygroundTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB2726D926A1C375003BA560 /* Build configuration list for PBXNativeTarget "DSP PlaygroundTests" */;
+			buildPhases = (
+				BB2726BE26A1C375003BA560 /* Sources */,
+				BB2726BF26A1C375003BA560 /* Frameworks */,
+				BB2726C026A1C375003BA560 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BB2726C426A1C375003BA560 /* PBXTargetDependency */,
+			);
+			name = "DSP PlaygroundTests";
+			productName = "DSP PlaygroundTests";
+			productReference = BB2726C226A1C375003BA560 /* DSP PlaygroundTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BB2726CC26A1C375003BA560 /* DSP PlaygroundUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB2726DC26A1C375003BA560 /* Build configuration list for PBXNativeTarget "DSP PlaygroundUITests" */;
+			buildPhases = (
+				BB2726C926A1C375003BA560 /* Sources */,
+				BB2726CA26A1C375003BA560 /* Frameworks */,
+				BB2726CB26A1C375003BA560 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BB2726CF26A1C375003BA560 /* PBXTargetDependency */,
+			);
+			name = "DSP PlaygroundUITests";
+			productName = "DSP PlaygroundUITests";
+			productReference = BB2726CD26A1C375003BA560 /* DSP PlaygroundUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BB2726A826A1C371003BA560 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					BB2726AF26A1C371003BA560 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					BB2726C126A1C375003BA560 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = BB2726AF26A1C371003BA560;
+					};
+					BB2726CC26A1C375003BA560 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = BB2726AF26A1C371003BA560;
+					};
+				};
+			};
+			buildConfigurationList = BB2726AB26A1C371003BA560 /* Build configuration list for PBXProject "DSP Playground" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BB2726A726A1C371003BA560;
+			productRefGroup = BB2726B126A1C371003BA560 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BB2726AF26A1C371003BA560 /* DSP Playground */,
+				BB2726C126A1C375003BA560 /* DSP PlaygroundTests */,
+				BB2726CC26A1C375003BA560 /* DSP PlaygroundUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BB2726AE26A1C371003BA560 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB2726BB26A1C375003BA560 /* Preview Assets.xcassets in Resources */,
+				BB2726B826A1C375003BA560 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB2726C026A1C375003BA560 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB2726CB26A1C375003BA560 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BB2726AC26A1C371003BA560 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB2726B626A1C371003BA560 /* ContentView.swift in Sources */,
+				BB2726B426A1C371003BA560 /* DSP_PlaygroundApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB2726BE26A1C375003BA560 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB2726C726A1C375003BA560 /* DSP_PlaygroundTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB2726C926A1C375003BA560 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB2726D226A1C375003BA560 /* DSP_PlaygroundUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BB2726C426A1C375003BA560 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB2726AF26A1C371003BA560 /* DSP Playground */;
+			targetProxy = BB2726C326A1C375003BA560 /* PBXContainerItemProxy */;
+		};
+		BB2726CF26A1C375003BA560 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB2726AF26A1C371003BA560 /* DSP Playground */;
+			targetProxy = BB2726CE26A1C375003BA560 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BB2726D426A1C375003BA560 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BB2726D526A1C375003BA560 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		BB2726D726A1C375003BA560 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "DSP Playground/DSP_Playground.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"DSP Playground/Preview Content\"";
+				DEVELOPMENT_TEAM = 9RU52AC58E;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "DSP Playground/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "studio.arata.DSP-Playground";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BB2726D826A1C375003BA560 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "DSP Playground/DSP_Playground.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"DSP Playground/Preview Content\"";
+				DEVELOPMENT_TEAM = 9RU52AC58E;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "DSP Playground/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "studio.arata.DSP-Playground";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		BB2726DA26A1C375003BA560 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9RU52AC58E;
+				INFOPLIST_FILE = "DSP PlaygroundTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "studio.arata.DSP-PlaygroundTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DSP Playground.app/Contents/MacOS/DSP Playground";
+			};
+			name = Debug;
+		};
+		BB2726DB26A1C375003BA560 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9RU52AC58E;
+				INFOPLIST_FILE = "DSP PlaygroundTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "studio.arata.DSP-PlaygroundTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DSP Playground.app/Contents/MacOS/DSP Playground";
+			};
+			name = Release;
+		};
+		BB2726DD26A1C375003BA560 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9RU52AC58E;
+				INFOPLIST_FILE = "DSP PlaygroundUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "studio.arata.DSP-PlaygroundUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "DSP Playground";
+			};
+			name = Debug;
+		};
+		BB2726DE26A1C375003BA560 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9RU52AC58E;
+				INFOPLIST_FILE = "DSP PlaygroundUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "studio.arata.DSP-PlaygroundUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "DSP Playground";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BB2726AB26A1C371003BA560 /* Build configuration list for PBXProject "DSP Playground" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB2726D426A1C375003BA560 /* Debug */,
+				BB2726D526A1C375003BA560 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB2726D626A1C375003BA560 /* Build configuration list for PBXNativeTarget "DSP Playground" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB2726D726A1C375003BA560 /* Debug */,
+				BB2726D826A1C375003BA560 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB2726D926A1C375003BA560 /* Build configuration list for PBXNativeTarget "DSP PlaygroundTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB2726DA26A1C375003BA560 /* Debug */,
+				BB2726DB26A1C375003BA560 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB2726DC26A1C375003BA560 /* Build configuration list for PBXNativeTarget "DSP PlaygroundUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB2726DD26A1C375003BA560 /* Debug */,
+				BB2726DE26A1C375003BA560 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BB2726A826A1C371003BA560 /* Project object */;
+}
