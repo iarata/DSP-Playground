@@ -24,6 +24,8 @@ struct AudioFileOV: View {
     
     @State var mousePosition: CGPoint
     
+    @State var connectionMG: ConnectionManager
+    
     var body: some View {
             ZStack {
                 HStack {
@@ -46,57 +48,57 @@ struct AudioFileOV: View {
                     self.filename = objectManager.selectFile()
                     self.objectManager.updateName(of: dspObject.id, to: self.filename, position: position)
                 }
-                .contextMenu {
-                    Button {
-                        self.showDetails.toggle()
-                    } label: {
-                        HStack {
-                            Image(systemName: "info.circle")
-                            Text("Get Info")
-                        }
-                    }
-
-                    Button {
-                        self.isEditing.toggle()
-                    } label: {
-                        HStack {
-                            Image(systemName: "rectangle.and.pencil.and.ellipsis")
-                            Text("Rename")
-                        }
-                    }
-                    Divider()
-                    Button {
-                        objectManager.deleteObject(of: dspObject.id)
-                    } label: {
-                        HStack {
-                            Image(systemName: "trash")
-                            Text("Delete")
-                        }.foregroundColor(.red)
-                    }
-                }
-                .sheet(isPresented: $showDetails) {
-                    VStack {
-                        List {
-                            HStack {
-                                Text("UUID:")
-                                Spacer()
-                                Text("\(dspObject.id)")
-                            }.background(Color.white).cornerRadius(12)
-                            HStack {
-                                Text("Type:")
-                                Spacer()
-                                Text("\(dspObject.type.rawValue)")
-                            }
-                        }
-                        Button("Close") {
-                            showDetails.toggle()
-                        }
-                    }.frame(width: 300, height: 150)
-                }
+//                .contextMenu {
+//                    Button {
+//                        self.showDetails.toggle()
+//                    } label: {
+//                        HStack {
+//                            Image(systemName: "info.circle")
+//                            Text("Get Info")
+//                        }
+//                    }
+//
+//                    Button {
+//                        self.isEditing.toggle()
+//                    } label: {
+//                        HStack {
+//                            Image(systemName: "rectangle.and.pencil.and.ellipsis")
+//                            Text("Rename")
+//                        }
+//                    }
+//                    Divider()
+//                    Button {
+//                        objectManager.deleteObject(of: dspObject.id)
+//                    } label: {
+//                        HStack {
+//                            Image(systemName: "trash")
+//                            Text("Delete")
+//                        }.foregroundColor(.red)
+//                    }
+//                }
+//                .sheet(isPresented: $showDetails) {
+//                    VStack {
+//                        List {
+//                            HStack {
+//                                Text("UUID:")
+//                                Spacer()
+//                                Text("\(dspObject.id)")
+//                            }.background(Color.white).cornerRadius(12)
+//                            HStack {
+//                                Text("Type:")
+//                                Spacer()
+//                                Text("\(dspObject.type.rawValue)")
+//                            }
+//                        }
+//                        Button("Close") {
+//                            showDetails.toggle()
+//                        }
+//                    }.frame(width: 300, height: 150)
+//                }
 
                 Circle()
                     .frame(width: 10, height: 10)
-                    .foregroundColor(isHoveringCircle ? Color.white : Color.white.opacity(0.5))
+                    .foregroundColor(isHoveringCircle || connectionMG.connecting ? Color.white : Color.white.opacity(0.5))
                     .onHover(perform: { isHovering in
                         withAnimation {
                             self.isHoveringCircle = isHovering
@@ -104,7 +106,12 @@ struct AudioFileOV: View {
                     })
                     .shadow(radius: 5)
                     .offset(y: 25)
+                    .onTapGesture {
+                        connectionMG.connecting = true
+                        connectionMG.initStart(start: dspObject.id)
+                    }
 
+                
                 
         }
         

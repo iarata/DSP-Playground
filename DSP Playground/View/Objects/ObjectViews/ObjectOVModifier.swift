@@ -30,7 +30,7 @@ struct ObjectOVModifier: ViewModifier {
                 .position(rectPosition)
                 .gesture(DragGesture().onChanged({ value in
                     withAnimation {
-                        if (value.location.x >= 60 && value.location.x <= geometry.size.width-65) && (value.location.y >= 35 && value.location.y <= geometry.size.height-120) {
+                        if (value.location.x >= 60 && value.location.x <= geometry.size.width-65) && (value.location.y >= 35 && value.location.y <= geometry.size.height-50) {
                             self.rectPosition = CGPoint(x: value.location.x, y: value.location.y)
                             
                         }

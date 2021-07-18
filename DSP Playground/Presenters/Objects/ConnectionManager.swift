@@ -19,45 +19,54 @@ struct SubConnection: Codable {
     var to: CGPoint
 }
 
+struct InitialConnection: Identifiable, Codable {
+    var id = UUID()
+    var start: UUID
+    var end: UUID?
+}
+
 // MARK: Connection Manager
 class ConnectionManager: ObservableObject {
     
     let keyForConnectionStorage = "ConnectionStorage"
     
-    @Published var connections = [ConnectionModel]()
-    
+    @Published var connections = [InitialConnection]()
     @Published var connecting = false
+    @Published var publicConnection = InitialConnection(start: UUID(), end: nil)
     
-    func initConnection(start: CGPoint)
-    {
-        
+    func initStart(start: UUID) {
+        connecting = true
+        publicConnection.start = start
+    }
+    func initStop(stop: UUID) {
+        publicConnection.end = stop
+        connecting = false
+        addConnection(connection: publicConnection)
     }
     
-    // MARK: - Add a Path
-    func addPath(id: UUID, subs: [SubConnection]) {
-        var prevData = getPaths()
-        prevData.append(ConnectionModel(objectID: id, linePoints: subs))
-        let data = prevData.map { try? JSONEncoder().encode($0) }
+    // MARK: Add Connection
+    func addConnection(connection: InitialConnection) {
+        var prevConnections = getConnections()
+        prevConnections.append(connection)
+        let data = prevConnections.map { try? JSONEncoder().encode($0) }
         UserDefaults.standard.set(data, forKey: keyForConnectionStorage)
-        self.connections = getPaths()
-        print(subs)
-        DSPNotification().updatePath(object: self)
+        self.connections = getConnections()
+        DSPNotification().update(object: self)
     }
     
-    // MARK: - Get Paths
-    func getPaths() -> [ConnectionModel] {
+    // MARK: Get Connections List
+    func getConnections() -> [InitialConnection] {
         guard let encodedData = UserDefaults.standard.array(forKey: keyForConnectionStorage) as? [Data] else { return [] }
-        return encodedData.map { try! JSONDecoder().decode(ConnectionModel.self, from: $0) }
+        return encodedData.map { try! JSONDecoder().decode(InitialConnection.self, from: $0)}
     }
     
-    func getPath(id: UUID) -> ConnectionModel {
-        var result = ConnectionModel(objectID: id, linePoints: [SubConnection(name: "", from: CGPoint(x: 0,y: 0), to: CGPoint(x: 0,y: 0))])
-        for item in getPaths() {
-            if item.objectID == id {
-                result = item
-            }
+    // MARK: Get Coordinate to Connect
+    func getCoordinates(id: UUID) -> CGPoint {
+        if let object = ObjectManager().getObject(id: id) {
+            return object.currentPosition
+        } else {
+            return CGPoint(x: 0, y: 0)
         }
         
-        return result
     }
 }

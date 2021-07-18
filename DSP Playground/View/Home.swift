@@ -29,7 +29,7 @@ struct Home: View {
     @State var mousePosition = CGPoint(x: 0, y: 0)
     @State var mouseClicked = false
     
-//    @S
+    @ObservedObject var connectioManager = ConnectionManager()
 
     var body: some View {
         
@@ -38,11 +38,11 @@ struct Home: View {
                 ForEach(objects) {
                     if $0.type == .audioFile {
                         
-                        AudioFileOV(dspObject: $0, position: rectPosition, mousePosition: mousePosition).tag($0.id)
+                        AudioFileOV(dspObject: $0, position: rectPosition, mousePosition: mousePosition, connectionMG: connectioManager).tag($0.id)
                             .modifier(ObjectOVModifier(rectPosition: rectPosition, isDragging: isDragging, clickLocatin: clickLocatin, geometry: geometry, objDetails: $0, objectNewName: $objNewName, showDetails: $showDetails, isEditing: $isEditing, dspObject: $0))
                         
                     } else if $0.type == .filter {
-                        FilterOV(dspObject: $0, isEditing: $isEditing, newItemName: $objNewName, position: rectPosition).tag($0.id)
+                        FilterOV(dspObject: $0, isEditing: $isEditing, newItemName: $objNewName, position: rectPosition, connectionMG: connectioManager)
                             .modifier(ObjectOVModifier(rectPosition: rectPosition, isDragging: isDragging, clickLocatin: clickLocatin, geometry: geometry, objDetails: $0, objectNewName: $objNewName, showDetails: $showDetails, isEditing: $isEditing, dspObject: $0))
                     } else {
                         OutputDeviceOV(dspObject: $0, isEditing: $isEditing, newItemName: $objNewName, position: rectPosition).tag($0.id)
@@ -50,6 +50,13 @@ struct Home: View {
                     }
                 }
                 
+//                ForEach
+                
+                VStack(alignment: .leading) {
+                    Spacer()
+                    Divider()
+                    Text("Ready").padding()
+                }
                 if objects.isEmpty {
                     VStack {
                         Spacer()
