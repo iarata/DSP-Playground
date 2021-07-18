@@ -7,12 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB24F41226A3396300CF3AD7 /* DSPObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41126A3396300CF3AD7 /* DSPObject.swift */; };
+		BB24F41426A34B5700CF3AD7 /* DSPNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41326A34B5700CF3AD7 /* DSPNotification.swift */; };
+		BB24F41626A3692700CF3AD7 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41526A3692700CF3AD7 /* Extentions.swift */; };
+		BB24F41826A36A8E00CF3AD7 /* FilterOV.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41726A36A8E00CF3AD7 /* FilterOV.swift */; };
+		BB24F41A26A36BD700CF3AD7 /* OutputDeviceOV.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41926A36BD700CF3AD7 /* OutputDeviceOV.swift */; };
+		BB24F41D26A36E2300CF3AD7 /* ObjectOVModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41C26A36E2300CF3AD7 /* ObjectOVModifier.swift */; };
+		BB24F41F26A3973C00CF3AD7 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41E26A3973C00CF3AD7 /* ConnectionManager.swift */; };
 		BB2726B426A1C371003BA560 /* DSP_PlaygroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2726B326A1C371003BA560 /* DSP_PlaygroundApp.swift */; };
 		BB2726B626A1C371003BA560 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2726B526A1C371003BA560 /* ContentView.swift */; };
 		BB2726B826A1C375003BA560 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB2726B726A1C375003BA560 /* Assets.xcassets */; };
 		BB2726BB26A1C375003BA560 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB2726BA26A1C375003BA560 /* Preview Assets.xcassets */; };
 		BB2726C726A1C375003BA560 /* DSP_PlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2726C626A1C375003BA560 /* DSP_PlaygroundTests.swift */; };
 		BB2726D226A1C375003BA560 /* DSP_PlaygroundUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2726D126A1C375003BA560 /* DSP_PlaygroundUITests.swift */; };
+		BB2726E226A1E18F003BA560 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2726E126A1E18F003BA560 /* Home.swift */; };
+		BB2726E426A1E196003BA560 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2726E326A1E196003BA560 /* Sidebar.swift */; };
+		BB2726E726A2D114003BA560 /* AudioFileOV.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2726E626A2D114003BA560 /* AudioFileOV.swift */; };
+		BB2726EB26A2D1BF003BA560 /* ObjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2726EA26A2D1BF003BA560 /* ObjectManager.swift */; };
+		BB2726F026A2E776003BA560 /* ExtraTEST.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2726EF26A2E776003BA560 /* ExtraTEST.swift */; };
+		BB2726F226A2F0A6003BA560 /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2726F126A2F0A6003BA560 /* Objects.swift */; };
+		BB2726F626A307CA003BA560 /* ObjectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2726F526A307CA003BA560 /* ObjectItem.swift */; };
+		BB2726F926A31470003BA560 /* SidebarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2726F826A31470003BA560 /* SidebarItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +48,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB24F41126A3396300CF3AD7 /* DSPObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSPObject.swift; sourceTree = "<group>"; };
+		BB24F41326A34B5700CF3AD7 /* DSPNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSPNotification.swift; sourceTree = "<group>"; };
+		BB24F41526A3692700CF3AD7 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		BB24F41726A36A8E00CF3AD7 /* FilterOV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOV.swift; sourceTree = "<group>"; };
+		BB24F41926A36BD700CF3AD7 /* OutputDeviceOV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputDeviceOV.swift; sourceTree = "<group>"; };
+		BB24F41C26A36E2300CF3AD7 /* ObjectOVModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectOVModifier.swift; sourceTree = "<group>"; };
+		BB24F41E26A3973C00CF3AD7 /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		BB2726B026A1C371003BA560 /* DSP Playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DSP Playground.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB2726B326A1C371003BA560 /* DSP_PlaygroundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSP_PlaygroundApp.swift; sourceTree = "<group>"; };
 		BB2726B526A1C371003BA560 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +68,14 @@
 		BB2726CD26A1C375003BA560 /* DSP PlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DSP PlaygroundUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB2726D126A1C375003BA560 /* DSP_PlaygroundUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSP_PlaygroundUITests.swift; sourceTree = "<group>"; };
 		BB2726D326A1C375003BA560 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB2726E126A1E18F003BA560 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		BB2726E326A1E196003BA560 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
+		BB2726E626A2D114003BA560 /* AudioFileOV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFileOV.swift; sourceTree = "<group>"; };
+		BB2726EA26A2D1BF003BA560 /* ObjectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectManager.swift; sourceTree = "<group>"; };
+		BB2726EF26A2E776003BA560 /* ExtraTEST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraTEST.swift; sourceTree = "<group>"; };
+		BB2726F126A2F0A6003BA560 /* Objects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
+		BB2726F526A307CA003BA560 /* ObjectItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectItem.swift; sourceTree = "<group>"; };
+		BB2726F826A31470003BA560 /* SidebarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +103,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB24F41B26A36C7F00CF3AD7 /* ObjectViews */ = {
+			isa = PBXGroup;
+			children = (
+				BB2726E626A2D114003BA560 /* AudioFileOV.swift */,
+				BB24F41726A36A8E00CF3AD7 /* FilterOV.swift */,
+				BB24F41926A36BD700CF3AD7 /* OutputDeviceOV.swift */,
+				BB24F41C26A36E2300CF3AD7 /* ObjectOVModifier.swift */,
+			);
+			path = ObjectViews;
+			sourceTree = "<group>";
+		};
 		BB2726A726A1C371003BA560 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +137,8 @@
 		BB2726B226A1C371003BA560 /* DSP Playground */ = {
 			isa = PBXGroup;
 			children = (
+				BB2726E826A2D199003BA560 /* Presenters */,
+				BB2726DF26A1E17A003BA560 /* View */,
 				BB2726B326A1C371003BA560 /* DSP_PlaygroundApp.swift */,
 				BB2726B526A1C371003BA560 /* ContentView.swift */,
 				BB2726B726A1C375003BA560 /* Assets.xcassets */,
@@ -130,6 +173,56 @@
 				BB2726D326A1C375003BA560 /* Info.plist */,
 			);
 			path = "DSP PlaygroundUITests";
+			sourceTree = "<group>";
+		};
+		BB2726DF26A1E17A003BA560 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BB2726F726A3145F003BA560 /* Sidebar */,
+				BB2726E526A2D0D5003BA560 /* Objects */,
+				BB2726E126A1E18F003BA560 /* Home.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BB2726E526A2D0D5003BA560 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				BB24F41B26A36C7F00CF3AD7 /* ObjectViews */,
+				BB2726F126A2F0A6003BA560 /* Objects.swift */,
+				BB2726F526A307CA003BA560 /* ObjectItem.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		BB2726E826A2D199003BA560 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				BB2726E926A2D1A6003BA560 /* Objects */,
+				BB2726EF26A2E776003BA560 /* ExtraTEST.swift */,
+				BB24F41326A34B5700CF3AD7 /* DSPNotification.swift */,
+				BB24F41526A3692700CF3AD7 /* Extentions.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		BB2726E926A2D1A6003BA560 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				BB2726EA26A2D1BF003BA560 /* ObjectManager.swift */,
+				BB24F41126A3396300CF3AD7 /* DSPObject.swift */,
+				BB24F41E26A3973C00CF3AD7 /* ConnectionManager.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		BB2726F726A3145F003BA560 /* Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				BB2726E326A1E196003BA560 /* Sidebar.swift */,
+				BB2726F826A31470003BA560 /* SidebarItem.swift */,
+			);
+			path = Sidebar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,7 +354,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB24F41226A3396300CF3AD7 /* DSPObject.swift in Sources */,
+				BB2726F626A307CA003BA560 /* ObjectItem.swift in Sources */,
+				BB2726EB26A2D1BF003BA560 /* ObjectManager.swift in Sources */,
+				BB24F41A26A36BD700CF3AD7 /* OutputDeviceOV.swift in Sources */,
 				BB2726B626A1C371003BA560 /* ContentView.swift in Sources */,
+				BB24F41826A36A8E00CF3AD7 /* FilterOV.swift in Sources */,
+				BB2726F226A2F0A6003BA560 /* Objects.swift in Sources */,
+				BB2726F926A31470003BA560 /* SidebarItem.swift in Sources */,
+				BB2726E726A2D114003BA560 /* AudioFileOV.swift in Sources */,
+				BB2726F026A2E776003BA560 /* ExtraTEST.swift in Sources */,
+				BB24F41626A3692700CF3AD7 /* Extentions.swift in Sources */,
+				BB24F41426A34B5700CF3AD7 /* DSPNotification.swift in Sources */,
+				BB24F41F26A3973C00CF3AD7 /* ConnectionManager.swift in Sources */,
+				BB24F41D26A36E2300CF3AD7 /* ObjectOVModifier.swift in Sources */,
+				BB2726E226A1E18F003BA560 /* Home.swift in Sources */,
+				BB2726E426A1E196003BA560 /* Sidebar.swift in Sources */,
 				BB2726B426A1C371003BA560 /* DSP_PlaygroundApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

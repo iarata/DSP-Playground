@@ -11,7 +11,7 @@ import SwiftUI
 struct DSP_PlaygroundApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().frame(width: 1324, height: 700, alignment: .center)
         }
     }
 }
