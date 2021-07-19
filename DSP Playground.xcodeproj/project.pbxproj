@@ -19,8 +19,11 @@
 		BB24F42A26A46C2B00CF3AD7 /* TimeDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F42926A46C2B00CF3AD7 /* TimeDomain.swift */; };
 		BB24F42D26A46E6100CF3AD7 /* AudioInspect.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F42C26A46E6100CF3AD7 /* AudioInspect.swift */; };
 		BB24F43026A4991000CF3AD7 /* AudioKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = BB24F42F26A4991000CF3AD7 /* AudioKitUI */; };
-		BB24F43326A5596600CF3AD7 /* AudioInspectPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F43226A5596600CF3AD7 /* AudioInspectPlayer.swift */; };
 		BB24F43526A55CE200CF3AD7 /* AudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F43426A55CE200CF3AD7 /* AudioModel.swift */; };
+		BB24F43826A5A2D800CF3AD7 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = BB24F43726A5A2D800CF3AD7 /* SwiftUICharts */; };
+		BB24F43A26A5B98100CF3AD7 /* PythonPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F43926A5B98100CF3AD7 /* PythonPlot.swift */; };
+		BB24F43D26A5BB8800CF3AD7 /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = BB24F43C26A5BB8800CF3AD7 /* PythonKit */; };
+		BB24F44026A5BC0E00CF3AD7 /* PythonKitTest.py in Resources */ = {isa = PBXBuildFile; fileRef = BB24F43F26A5BC0E00CF3AD7 /* PythonKitTest.py */; };
 		BB2726B426A1C371003BA560 /* DSP_PlaygroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2726B326A1C371003BA560 /* DSP_PlaygroundApp.swift */; };
 		BB2726B626A1C371003BA560 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2726B526A1C371003BA560 /* ContentView.swift */; };
 		BB2726B826A1C375003BA560 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB2726B726A1C375003BA560 /* Assets.xcassets */; };
@@ -66,8 +69,9 @@
 		BB24F42626A4390600CF3AD7 /* Inspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inspector.swift; sourceTree = "<group>"; };
 		BB24F42926A46C2B00CF3AD7 /* TimeDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDomain.swift; sourceTree = "<group>"; };
 		BB24F42C26A46E6100CF3AD7 /* AudioInspect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioInspect.swift; sourceTree = "<group>"; };
-		BB24F43226A5596600CF3AD7 /* AudioInspectPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioInspectPlayer.swift; sourceTree = "<group>"; };
 		BB24F43426A55CE200CF3AD7 /* AudioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioModel.swift; sourceTree = "<group>"; };
+		BB24F43926A5B98100CF3AD7 /* PythonPlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PythonPlot.swift; sourceTree = "<group>"; };
+		BB24F43F26A5BC0E00CF3AD7 /* PythonKitTest.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = PythonKitTest.py; sourceTree = "<group>"; };
 		BB2726B026A1C371003BA560 /* DSP Playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DSP Playground.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB2726B326A1C371003BA560 /* DSP_PlaygroundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSP_PlaygroundApp.swift; sourceTree = "<group>"; };
 		BB2726B526A1C371003BA560 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB24F43026A4991000CF3AD7 /* AudioKitUI in Frameworks */,
+				BB24F43826A5A2D800CF3AD7 /* SwiftUICharts in Frameworks */,
+				BB24F43D26A5BB8800CF3AD7 /* PythonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				BB24F42926A46C2B00CF3AD7 /* TimeDomain.swift */,
+				BB24F43926A5B98100CF3AD7 /* PythonPlot.swift */,
 			);
 			path = Graph;
 			sourceTree = "<group>";
@@ -158,9 +165,16 @@
 			isa = PBXGroup;
 			children = (
 				BB24F42C26A46E6100CF3AD7 /* AudioInspect.swift */,
-				BB24F43226A5596600CF3AD7 /* AudioInspectPlayer.swift */,
 			);
 			path = Audio;
+			sourceTree = "<group>";
+		};
+		BB24F43E26A5BBEA00CF3AD7 /* Python */ = {
+			isa = PBXGroup;
+			children = (
+				BB24F43F26A5BC0E00CF3AD7 /* PythonKitTest.py */,
+			);
+			path = Python;
 			sourceTree = "<group>";
 		};
 		BB2726A726A1C371003BA560 = {
@@ -186,6 +200,7 @@
 		BB2726B226A1C371003BA560 /* DSP Playground */ = {
 			isa = PBXGroup;
 			children = (
+				BB24F43E26A5BBEA00CF3AD7 /* Python */,
 				BB2726E826A2D199003BA560 /* Presenters */,
 				BB2726DF26A1E17A003BA560 /* View */,
 				BB2726B326A1C371003BA560 /* DSP_PlaygroundApp.swift */,
@@ -295,6 +310,8 @@
 			name = "DSP Playground";
 			packageProductDependencies = (
 				BB24F42F26A4991000CF3AD7 /* AudioKitUI */,
+				BB24F43726A5A2D800CF3AD7 /* SwiftUICharts */,
+				BB24F43C26A5BB8800CF3AD7 /* PythonKit */,
 			);
 			productName = "DSP Playground";
 			productReference = BB2726B026A1C371003BA560 /* DSP Playground.app */;
@@ -369,6 +386,8 @@
 			mainGroup = BB2726A726A1C371003BA560;
 			packageReferences = (
 				BB24F42E26A4991000CF3AD7 /* XCRemoteSwiftPackageReference "AudioKitUI" */,
+				BB24F43626A5A2D800CF3AD7 /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
+				BB24F43B26A5BB8800CF3AD7 /* XCRemoteSwiftPackageReference "PythonKit" */,
 			);
 			productRefGroup = BB2726B126A1C371003BA560 /* Products */;
 			projectDirPath = "";
@@ -388,6 +407,7 @@
 			files = (
 				BB2726BB26A1C375003BA560 /* Preview Assets.xcassets in Resources */,
 				BB2726B826A1C375003BA560 /* Assets.xcassets in Resources */,
+				BB24F44026A5BC0E00CF3AD7 /* PythonKitTest.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +432,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB24F43326A5596600CF3AD7 /* AudioInspectPlayer.swift in Sources */,
 				BB24F41226A3396300CF3AD7 /* DSPObject.swift in Sources */,
 				BB2726F626A307CA003BA560 /* ObjectItem.swift in Sources */,
 				BB2726EB26A2D1BF003BA560 /* ObjectManager.swift in Sources */,
@@ -428,6 +447,7 @@
 				BB24F43526A55CE200CF3AD7 /* AudioModel.swift in Sources */,
 				BB24F42726A4390600CF3AD7 /* Inspector.swift in Sources */,
 				BB2726F026A2E776003BA560 /* ExtraTEST.swift in Sources */,
+				BB24F43A26A5B98100CF3AD7 /* PythonPlot.swift in Sources */,
 				BB24F41626A3692700CF3AD7 /* Extentions.swift in Sources */,
 				BB24F41426A34B5700CF3AD7 /* DSPNotification.swift in Sources */,
 				BB24F41F26A3973C00CF3AD7 /* ConnectionManager.swift in Sources */,
@@ -767,6 +787,22 @@
 				kind = branch;
 			};
 		};
+		BB24F43626A5A2D800CF3AD7 /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/willdale/SwiftUICharts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.2;
+			};
+		};
+		BB24F43B26A5BB8800CF3AD7 /* XCRemoteSwiftPackageReference "PythonKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pvieito/PythonKit";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -774,6 +810,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BB24F42E26A4991000CF3AD7 /* XCRemoteSwiftPackageReference "AudioKitUI" */;
 			productName = AudioKitUI;
+		};
+		BB24F43726A5A2D800CF3AD7 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB24F43626A5A2D800CF3AD7 /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
+			productName = SwiftUICharts;
+		};
+		BB24F43C26A5BB8800CF3AD7 /* PythonKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB24F43B26A5BB8800CF3AD7 /* XCRemoteSwiftPackageReference "PythonKit" */;
+			productName = PythonKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

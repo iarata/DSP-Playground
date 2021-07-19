@@ -77,10 +77,8 @@ class AudioModelManager: ObservableObject {
         for model in prevData {
             if model.objectID == oldID {
                 newData.append(AudioModel(objectID: newID, path: model.path, duration: model.duration))
-                print("⚠️ updated to \(newID) from \(oldID)")
             } else {
                 newData.append(model)
-                print("⚠️ SAME")
             }
         }
         

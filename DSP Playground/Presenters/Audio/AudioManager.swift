@@ -27,8 +27,9 @@ class AVManager: ObservableObject {
             return try! AVAudioPCMBuffer(file: file)!
         }
         player.isLooping = true
-        player.buffer = sourceBuffer
-        
+//        player.buffer = sourceBuffer
+        player.file = try! AVAudioFile(forReading: URL(string: from)!)
+        player.buffer = try! AVAudioPCMBuffer(file: try! AVAudioFile(forReading: URL(string: from)!))!
         engine.output = player
         try! engine.start()
         totalTime = player.duration
@@ -43,11 +44,7 @@ class AVManager: ObservableObject {
         if panel.runModal() == .OK {
             self.selectedFile = panel.url!.absoluteString
             self.selectedAudioPath = panel.url!.absoluteString
-            print(selectedFile)
-            print(panel.url!.absoluteURL)
         }
-        
-        DSPNotification().updatePath(object: self)
         initAudio(from: selectedAudioPath)
         return panel.url?.absoluteString ?? ""
     }

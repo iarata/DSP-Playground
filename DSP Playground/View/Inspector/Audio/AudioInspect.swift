@@ -25,6 +25,8 @@ struct AudioInspect: View {
     @State var inspectorUpdates = DSPNotification().inspectPublish()
     @State var dspObjectUpdates = DSPNotification().publisher()
     
+//    @State var audioFileToProcess =
+    
     var body: some View {
         // MARK: - Audio Details
         VStack {
@@ -36,6 +38,7 @@ struct AudioInspect: View {
             if selectedAudioPath != "" {
                 Cell(leading: "File Type", trailing: URL(string: inspectModel.path)?.pathExtension ?? "Unavailable")
                 Cell(leading: "Duration", trailing: timeString(time: TimeInterval(inspectModel.duration)))
+                Cell(leading: "Duration", trailing: timeString(time: TimeInterval(inspectModel.duration)))
                 Cell(leading: "Path", trailing: inspectModel.path)
             }
             
@@ -44,21 +47,29 @@ struct AudioInspect: View {
                 Spacer()
             }.padding(.bottom,3)
             
+            // MARK: - Audio Progress
             if AVMan.player.isPlaying {
-                ProgressView(value: currentTime, total: AVMan.totalTime)
+                VStack(spacing: 0) {
+                    HStack {
+                        Spacer()
+                        Text(timeString(time: TimeInterval(currentTime))).foregroundColor(Color.secondary).padding(.horizontal, 1)
+                    }
+                    ProgressView(value: (currentTime > AVMan.totalTime) ? AVMan.totalTime : currentTime, total: AVMan.totalTime)
+                }
             } 
             
             HStack(spacing: 25) {
                 
                 // MARK: - Load Button
                 Button {
-                    
-                    selectedAudioPath = AVMan.selectFile()
-                    objectMTG.updateName(of: dspObject.id, to: NSURL(string: selectedAudioPath)?.deletingPathExtension?.lastPathComponent ?? "None", position: dspObject.currentPosition)
-                    
-                    inspectModel = AudioModel(objectID: dspObject.id, path: selectedAudioPath, duration: AVMan.player.duration)
-                    audioModelMTG.add(model: inspectModel)
-                    DSPNotification().update(object: self)
+                    withAnimation {
+                        selectedAudioPath = AVMan.selectFile()
+                        objectMTG.updateName(of: dspObject.id, to: NSURL(string: selectedAudioPath)?.deletingPathExtension?.lastPathComponent ?? "None", position: dspObject.currentPosition)
+                        
+                        inspectModel = AudioModel(objectID: dspObject.id, path: selectedAudioPath, duration: AVMan.player.duration)
+                        audioModelMTG.add(model: inspectModel)
+                        DSPNotification().update(object: self)
+                    }
                 } label: {
                     Image(systemName: "doc.text.fill").font(.system(size: 18))
                 }.buttonStyle(PlainButtonStyle())
@@ -66,22 +77,36 @@ struct AudioInspect: View {
                 
                 // MARK: - Play Button
                 Button {
-                    if AVMan.player.isPlaying {
-                        AVMan.player.stop()
-                    } else {
-                        AVMan.initAudio(from: selectedAudioPath)
-                        AVMan.player.play()
+                    withAnimation {
+                        if AVMan.player.isPlaying {
+                            AVMan.player.stop()
+                           
+                        } else {
+                            AVMan.initAudio(from: selectedAudioPath)
+                            AVMan.player.play()
+                        }
                     }
                     DispatchQueue.global(qos: .background).async {
                         while AVMan.player.isPlaying {
                             currentTime = AVMan.player.getCurrentTime()
+                            
                         }
+                        currentTime = 0
                     }
                 } label: {
-                    Image(systemName: "play.fill").font(.system(size: 18))
+                    Image(systemName: AVMan.player.isPlaying ? "stop.fill" : "play.fill").font(.system(size: 18))
                 }.buttonStyle(PlainButtonStyle())
                 .help(Text("Play"))
                 .disabled(selectedAudioPath == "" ? true : false)
+                
+                
+//                Button("Open Charts") {
+//                    TimeDomain().frame(width: 700, height: 300).openInWindow(title: "Graph Freq-Time", sender: self)
+//                }
+                
+                Button("Open Charts") {
+                    PythonPlot().openInWindow(title: "PythonKit Test", sender: self)
+                }
                 
                 
             }
