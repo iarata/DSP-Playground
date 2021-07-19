@@ -38,6 +38,7 @@ struct DSPObject: Identifiable, Codable {
     init(id: UUID, type: ObjectType, title: String?, currentPosition: CGPoint) {
         self.id = id
         self.type = type
+        self.title = title
         if let title = title {
             self.title = title
         } else {
@@ -56,6 +57,7 @@ struct DSPObject: Identifiable, Codable {
     }
 
 }
+
 
 // MARK: Object Types & Color
 enum ObjectType: String, Codable {

@@ -34,14 +34,20 @@ class ConnectionManager: ObservableObject {
     @Published var connecting = false
     @Published var publicConnection = InitialConnection(start: UUID(), end: nil)
     
+    init() {
+        self.connections = getConnections()
+    }
+    
     func initStart(start: UUID) {
         connecting = true
         publicConnection.start = start
     }
     func initStop(stop: UUID) {
+        print("⚠️ CONNECET INIT: \(stop.uuidString)")
         publicConnection.end = stop
         connecting = false
         addConnection(connection: publicConnection)
+        DSPNotification().update(object: self)
     }
     
     // MARK: Add Connection
@@ -67,6 +73,9 @@ class ConnectionManager: ObservableObject {
         } else {
             return CGPoint(x: 0, y: 0)
         }
+    }
+    
+    func deleteAll() {
         
     }
 }

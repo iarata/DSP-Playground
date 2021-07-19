@@ -15,63 +15,77 @@ struct Home: View {
     
     @State private var clickLocatin = NSPoint(x: 0, y: 0)
     
-    @State private var objects = [DSPObject]()
+    @State var objects = [DSPObject]()
+    @State private var connections = [InitialConnection]()
     @State private var showingSheet = false
     @State private var showDeleteAlert = false
     
     @State var pub = DSPNotification().publisher()
-    @State var objNewName = ""
-    @State var isEditing = false
     
+    @State var showInspector = false
+    @State var selectedElement = DSPObject(id: UUID(), type: .audioFile, title: "", currentPosition: CGPoint(x:0, y:0))
     
-    
-    @State var connections = ["status": ["move": CGPoint(x: 0, y: 0)]]
     @State var mousePosition = CGPoint(x: 0, y: 0)
     @State var mouseClicked = false
     
     @ObservedObject var connectioManager = ConnectionManager()
-
+    @ObservedObject var objectMTG = ObjectManager()
+    
     var body: some View {
         
         GeometryReader { geometry in
-            ZStack {
-                ForEach(objects) {
-                    if $0.type == .audioFile {
-                        
-                        AudioFileOV(dspObject: $0, position: rectPosition, mousePosition: mousePosition, connectionMG: connectioManager).tag($0.id)
-                            .modifier(ObjectOVModifier(rectPosition: rectPosition, isDragging: isDragging, clickLocatin: clickLocatin, geometry: geometry, objDetails: $0, objectNewName: $objNewName, showDetails: $showDetails, isEditing: $isEditing, dspObject: $0))
-                        
-                    } else if $0.type == .filter {
-                        FilterOV(dspObject: $0, isEditing: $isEditing, newItemName: $objNewName, position: rectPosition, connectionMG: connectioManager)
-                            .modifier(ObjectOVModifier(rectPosition: rectPosition, isDragging: isDragging, clickLocatin: clickLocatin, geometry: geometry, objDetails: $0, objectNewName: $objNewName, showDetails: $showDetails, isEditing: $isEditing, dspObject: $0))
-                    } else {
-                        OutputDeviceOV(dspObject: $0, isEditing: $isEditing, newItemName: $objNewName, position: rectPosition).tag($0.id)
-                            .modifier(ObjectOVModifier(rectPosition: rectPosition, isDragging: isDragging, clickLocatin: clickLocatin, geometry: geometry, objDetails: $0, objectNewName: $objNewName, showDetails: $showDetails, isEditing: $isEditing, dspObject: $0))
+            HSplitView {
+                ZStack {
+                    ForEach(objects) {
+                        if $0.type == .audioFile {
+                            AudioFileOV(objectManager: objectMTG, dspObject: $0, position: rectPosition, mousePosition: mousePosition, connectionMG: connectioManager).tag($0.id)
+                                .modifier(ObjectOVModifier(rectPosition: rectPosition, isDragging: isDragging, geometry: geometry, showInspector: $showInspector, selected: $selectedElement, dspObject: $0, objectMTG: objectMTG))
+                                
+                            
+                        } else if $0.type == .filter {
+                            FilterOV(dspObject: $0, position: rectPosition, connectionMG: connectioManager).tag($0.id)
+                                .modifier(ObjectOVModifier(rectPosition: rectPosition, isDragging: isDragging, geometry: geometry, showInspector: $showInspector, selected: $selectedElement, dspObject: $0, objectMTG: objectMTG))
+                        } else {
+                            OutputDeviceOV(dspObject: $0, position: rectPosition).tag($0.id)
+                                .modifier(ObjectOVModifier(rectPosition: rectPosition, isDragging: isDragging, geometry: geometry, showInspector: $showInspector, selected: $selectedElement, dspObject: $0, objectMTG: objectMTG))
+                        }
                     }
-                }
-                
-//                ForEach
-                
-                VStack(alignment: .leading) {
-                    Spacer()
-                    Divider()
-                    Text("Ready").padding()
-                }
-                if objects.isEmpty {
-                    VStack {
+                    
+                    VStack(alignment: .leading) {
                         Spacer()
+                        Divider()
                         HStack {
+                            Text("Ready")
+                        }.padding([.leading, .bottom], 6)
+                    }
+                    if objects.isEmpty {
+                        VStack {
                             Spacer()
-                            (Text("Start by clicking on ") + Text(Image(systemName: "plus")) + Text(" and adding an object."))
-                                .foregroundColor(.gray.opacity(0.6))
-                                .font(.system(size: 20))
+                            HStack {
+                                Spacer()
+                                (Text("Start by clicking on ") + Text(Image(systemName: "plus")) + Text(" and adding an object."))
+                                    .foregroundColor(.gray.opacity(0.6))
+                                    .font(.system(size: 20))
+                                Spacer()
+                            }
                             Spacer()
                         }
-                        Spacer()
+                    }
+                    
+                    
+                }
+                .onTapGesture {
+                    withAnimation {
+                        mousePosition = didPressBarItem()
+                        selectedElement = DSPObject(id: UUID(), type: .audioFile, title: "", currentPosition: CGPoint(x:0, y:0))
+                        showInspector = false
+                        mouseClicked.toggle()
                     }
                 }
-                
-                
+                if showInspector {
+                    Inspector(objects: $objects, selected: $selectedElement, displayInspect: $showInspector).frame(maxWidth: 250, maxHeight: .infinity)
+
+                }
             }
             
         }
@@ -113,21 +127,19 @@ struct Home: View {
         }
         .alert(isPresented: $showDeleteAlert) {
             Alert(title: Text("Confirmation"), message: Text("Are you sure that you want to delete all the objects?"), primaryButton: .default(Text("Delete"), action: {
-                ObjectManager().deleteAll()
+                objectMTG.deleteAll()
             }), secondaryButton: .cancel())
         }
         .onAppear {
-            self.objects = ObjectManager().getObjects()
+            self.objects = objectMTG.getObjects()
         }
-        .onTapGesture {
-            mousePosition = didPressBarItem()
-            mouseClicked.toggle()
-        }
+        
         .onReceive(pub) { (output) in
             withAnimation {
-                objects = ObjectManager().getObjects()
+                self.objects = objectMTG.getObjects()
             }
         }
+        
         
     }
 }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,13 @@
 		BB24F41A26A36BD700CF3AD7 /* OutputDeviceOV.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41926A36BD700CF3AD7 /* OutputDeviceOV.swift */; };
 		BB24F41D26A36E2300CF3AD7 /* ObjectOVModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41C26A36E2300CF3AD7 /* ObjectOVModifier.swift */; };
 		BB24F41F26A3973C00CF3AD7 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41E26A3973C00CF3AD7 /* ConnectionManager.swift */; };
+		BB24F42226A40E1200CF3AD7 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F42126A40E1200CF3AD7 /* AudioManager.swift */; };
+		BB24F42726A4390600CF3AD7 /* Inspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F42626A4390600CF3AD7 /* Inspector.swift */; };
+		BB24F42A26A46C2B00CF3AD7 /* TimeDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F42926A46C2B00CF3AD7 /* TimeDomain.swift */; };
+		BB24F42D26A46E6100CF3AD7 /* AudioInspect.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F42C26A46E6100CF3AD7 /* AudioInspect.swift */; };
+		BB24F43026A4991000CF3AD7 /* AudioKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = BB24F42F26A4991000CF3AD7 /* AudioKitUI */; };
+		BB24F43326A5596600CF3AD7 /* AudioInspectPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F43226A5596600CF3AD7 /* AudioInspectPlayer.swift */; };
+		BB24F43526A55CE200CF3AD7 /* AudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F43426A55CE200CF3AD7 /* AudioModel.swift */; };
 		BB2726B426A1C371003BA560 /* DSP_PlaygroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2726B326A1C371003BA560 /* DSP_PlaygroundApp.swift */; };
 		BB2726B626A1C371003BA560 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2726B526A1C371003BA560 /* ContentView.swift */; };
 		BB2726B826A1C375003BA560 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB2726B726A1C375003BA560 /* Assets.xcassets */; };
@@ -55,6 +62,12 @@
 		BB24F41926A36BD700CF3AD7 /* OutputDeviceOV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputDeviceOV.swift; sourceTree = "<group>"; };
 		BB24F41C26A36E2300CF3AD7 /* ObjectOVModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectOVModifier.swift; sourceTree = "<group>"; };
 		BB24F41E26A3973C00CF3AD7 /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
+		BB24F42126A40E1200CF3AD7 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		BB24F42626A4390600CF3AD7 /* Inspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inspector.swift; sourceTree = "<group>"; };
+		BB24F42926A46C2B00CF3AD7 /* TimeDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDomain.swift; sourceTree = "<group>"; };
+		BB24F42C26A46E6100CF3AD7 /* AudioInspect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioInspect.swift; sourceTree = "<group>"; };
+		BB24F43226A5596600CF3AD7 /* AudioInspectPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioInspectPlayer.swift; sourceTree = "<group>"; };
+		BB24F43426A55CE200CF3AD7 /* AudioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioModel.swift; sourceTree = "<group>"; };
 		BB2726B026A1C371003BA560 /* DSP Playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DSP Playground.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB2726B326A1C371003BA560 /* DSP_PlaygroundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSP_PlaygroundApp.swift; sourceTree = "<group>"; };
 		BB2726B526A1C371003BA560 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB24F43026A4991000CF3AD7 /* AudioKitUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +126,41 @@
 				BB24F41C26A36E2300CF3AD7 /* ObjectOVModifier.swift */,
 			);
 			path = ObjectViews;
+			sourceTree = "<group>";
+		};
+		BB24F42026A40E0400CF3AD7 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				BB24F42126A40E1200CF3AD7 /* AudioManager.swift */,
+				BB24F43426A55CE200CF3AD7 /* AudioModel.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		BB24F42826A46C1C00CF3AD7 /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				BB24F42926A46C2B00CF3AD7 /* TimeDomain.swift */,
+			);
+			path = Graph;
+			sourceTree = "<group>";
+		};
+		BB24F42B26A46E4A00CF3AD7 /* Inspector */ = {
+			isa = PBXGroup;
+			children = (
+				BB24F43126A5594100CF3AD7 /* Audio */,
+				BB24F42626A4390600CF3AD7 /* Inspector.swift */,
+			);
+			path = Inspector;
+			sourceTree = "<group>";
+		};
+		BB24F43126A5594100CF3AD7 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				BB24F42C26A46E6100CF3AD7 /* AudioInspect.swift */,
+				BB24F43226A5596600CF3AD7 /* AudioInspectPlayer.swift */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 		BB2726A726A1C371003BA560 = {
@@ -178,6 +227,8 @@
 		BB2726DF26A1E17A003BA560 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BB24F42B26A46E4A00CF3AD7 /* Inspector */,
+				BB24F42826A46C1C00CF3AD7 /* Graph */,
 				BB2726F726A3145F003BA560 /* Sidebar */,
 				BB2726E526A2D0D5003BA560 /* Objects */,
 				BB2726E126A1E18F003BA560 /* Home.swift */,
@@ -198,6 +249,7 @@
 		BB2726E826A2D199003BA560 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				BB24F42026A40E0400CF3AD7 /* Audio */,
 				BB2726E926A2D1A6003BA560 /* Objects */,
 				BB2726EF26A2E776003BA560 /* ExtraTEST.swift */,
 				BB24F41326A34B5700CF3AD7 /* DSPNotification.swift */,
@@ -241,6 +293,9 @@
 			dependencies = (
 			);
 			name = "DSP Playground";
+			packageProductDependencies = (
+				BB24F42F26A4991000CF3AD7 /* AudioKitUI */,
+			);
 			productName = "DSP Playground";
 			productReference = BB2726B026A1C371003BA560 /* DSP Playground.app */;
 			productType = "com.apple.product-type.application";
@@ -312,6 +367,9 @@
 				Base,
 			);
 			mainGroup = BB2726A726A1C371003BA560;
+			packageReferences = (
+				BB24F42E26A4991000CF3AD7 /* XCRemoteSwiftPackageReference "AudioKitUI" */,
+			);
 			productRefGroup = BB2726B126A1C371003BA560 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -354,15 +412,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB24F43326A5596600CF3AD7 /* AudioInspectPlayer.swift in Sources */,
 				BB24F41226A3396300CF3AD7 /* DSPObject.swift in Sources */,
 				BB2726F626A307CA003BA560 /* ObjectItem.swift in Sources */,
 				BB2726EB26A2D1BF003BA560 /* ObjectManager.swift in Sources */,
 				BB24F41A26A36BD700CF3AD7 /* OutputDeviceOV.swift in Sources */,
+				BB24F42D26A46E6100CF3AD7 /* AudioInspect.swift in Sources */,
 				BB2726B626A1C371003BA560 /* ContentView.swift in Sources */,
 				BB24F41826A36A8E00CF3AD7 /* FilterOV.swift in Sources */,
+				BB24F42A26A46C2B00CF3AD7 /* TimeDomain.swift in Sources */,
+				BB24F42226A40E1200CF3AD7 /* AudioManager.swift in Sources */,
 				BB2726F226A2F0A6003BA560 /* Objects.swift in Sources */,
 				BB2726F926A31470003BA560 /* SidebarItem.swift in Sources */,
 				BB2726E726A2D114003BA560 /* AudioFileOV.swift in Sources */,
+				BB24F43526A55CE200CF3AD7 /* AudioModel.swift in Sources */,
+				BB24F42726A4390600CF3AD7 /* Inspector.swift in Sources */,
 				BB2726F026A2E776003BA560 /* ExtraTEST.swift in Sources */,
 				BB24F41626A3692700CF3AD7 /* Extentions.swift in Sources */,
 				BB24F41426A34B5700CF3AD7 /* DSPNotification.swift in Sources */,
@@ -539,7 +603,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "studio.arata.DSP-Playground";
+				PRODUCT_BUNDLE_IDENTIFIER = studio.arata.DSPPlayground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -563,7 +627,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "studio.arata.DSP-Playground";
+				PRODUCT_BUNDLE_IDENTIFIER = studio.arata.DSPPlayground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -693,6 +757,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BB24F42E26A4991000CF3AD7 /* XCRemoteSwiftPackageReference "AudioKitUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKitUI";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BB24F42F26A4991000CF3AD7 /* AudioKitUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB24F42E26A4991000CF3AD7 /* XCRemoteSwiftPackageReference "AudioKitUI" */;
+			productName = AudioKitUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BB2726A826A1C371003BA560 /* Project object */;
 }

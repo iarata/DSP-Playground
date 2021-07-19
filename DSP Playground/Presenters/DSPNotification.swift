@@ -30,5 +30,16 @@ class DSPNotification {
     func updatePath(object: Any?) {
         nc.post(name: ncPathKey, object: object)
     }
+    
+    let inspectPathKey = Notification.Name("inspectorNotifications")
+    let inspectNC = NotificationCenter.default
+    
+    func inspectPublish() -> NotificationCenter.Publisher {
+        return inspectNC.publisher(for: inspectPathKey)
+    }
+    
+    func inspectUpdate(object: Any?) {
+        inspectNC.post(name: inspectPathKey, object: object)
+    }
 
 }

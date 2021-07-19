@@ -21,18 +21,7 @@ class ObjectManager: ObservableObject {
         self.workspaceObjects = getObjects()
     }
     
-    // MARK: NSPanel Opener
-    func selectFile() -> String {
-        let panel = NSOpenPanel()
-        panel.allowsMultipleSelection = false
-        panel.canChooseDirectories = false
-        panel.title = "Select an audio file"
-        panel.allowedFileTypes = ["mp3", "aac", "wav", "flac", "alac", "dsd"]
-        if panel.runModal() == .OK {
-            self.fileDetail["filename"] = panel.url?.lastPathComponent ?? "none"
-        }
-        return panel.url?.lastPathComponent ?? "none"
-    }
+
     
     // MARK: Save Obejcts
     func saveObject(_ DSPObject: DSPObject) {
@@ -55,14 +44,17 @@ class ObjectManager: ObservableObject {
     func updateName(of objID: UUID, to objName: String, position: CGPoint) {
         let prevData = getObjects()
         var newData = [DSPObject]()
-        
+        var newOBJ: DSPObject
         for item in prevData {
             if item.id == objID {
-                newData.append(DSPObject(type: item.type, title: objName, currentPosition: position))
+                newOBJ = DSPObject(id: objID, type: item.type, title: objName, currentPosition: position)
+                newData.append(newOBJ)
+                AudioModelManager().updateObjectID(newID: newOBJ.id, oldID: objID)
             } else {
                 newData.append(item)
             }
         }
+        
         saveObject(newData)
     }
     
@@ -96,6 +88,15 @@ class ObjectManager: ObservableObject {
             return nil
         }
     }
+    func getIDS() -> [UUID] {
+        let data = getObjects()
+        var allIDs = [UUID]()
+        for objs in data {
+            allIDs.append(objs.id)
+        }
+        
+        return allIDs
+    }
     
     
     // MARK: Delete All
@@ -113,12 +114,11 @@ class ObjectManager: ObservableObject {
         
         for item in prevData {
             if item.id == dspObject.id {
-                newData.append(DSPObject(id: dspObject.id, type: dspObject.type, title: dspObject.title, currentPosition: newPosition))
+                newData.append(DSPObject(id: dspObject.id, type: dspObject.type, title: item.title, currentPosition: newPosition))
             } else {
                 newData.append(item)
             }
         }
-        print(newData)
         saveObject(newData)
     }
 

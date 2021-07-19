@@ -10,6 +10,7 @@ import SwiftUI
 struct Sidebar: View {
     
     @State var objects = [DSPObject]()
+    @State var objectIDS = [UUID]()
     @State var pub = DSPNotification().publisher()
     @State var selected: UUID?
     
@@ -33,7 +34,7 @@ struct Sidebar: View {
             }
         }
         .onAppear {
-            objects = ObjectManager().getObjects()
+            self.objects = ObjectManager().getObjects()
         }
         .onReceive(pub) { (output) in
             withAnimation {

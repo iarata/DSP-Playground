@@ -10,22 +10,19 @@ import SwiftUI
 struct ObjectOVModifier: ViewModifier {
     @State var rectPosition: CGPoint
     @GestureState var isDragging: Bool
-    @State var clickLocatin: NSPoint
     @State var geometry: GeometryProxy
-    
-    @State var objDetails: DSPObject
-    
-    @Binding var objectNewName: String
-    @Binding var showDetails: Bool
-    @Binding var isEditing: Bool
-    
+    @Binding var showInspector: Bool
+    @Binding var selected: DSPObject
     @State var dspObject: DSPObject
+    @State var objectMTG: ObjectManager
     
     func body(content: Content) -> some View {
         GeometryReader { geom in
             content
+                
+                .background(RoundedRectangle(cornerRadius: 12, style: .continuous).stroke(Color(getColorName(dspObject)), lineWidth: 6).opacity(selected.id == dspObject.id ? 1 : 0))
                 .onAppear {
-                    rectPosition = ObjectManager().getObject(id: dspObject.id)!.currentPosition
+                    rectPosition = objectMTG.getObject(id: dspObject.id)!.currentPosition
                 }
                 .position(rectPosition)
                 .gesture(DragGesture().onChanged({ value in
@@ -39,12 +36,30 @@ struct ObjectOVModifier: ViewModifier {
                     
                 })
                 .onEnded({ value in
-                    ObjectManager().updatePosition(dspObject: dspObject, to: value.location)
+                    objectMTG.updatePosition(dspObject: dspObject, to: value.location)
                 })
                 .updating($isDragging, body: { (value, state, trans) in
                     state = true
                 }))
+                .onTapGesture {
+                    withAnimation {
+                        showInspector = true
+                        selected = objectMTG.getObject(id: dspObject.id)!
+                    }
+                }
+                
         }
             
+    }
+    
+    private func getColorName(_ dspObj: DSPObject) -> String {
+        switch dspObj.type {
+        case .audioFile:
+            return "AudioFileText"
+        case .filter:
+            return "FilterText"
+        case .outputDevice:
+            return "OutputDeviceText"
+        }
     }
 }

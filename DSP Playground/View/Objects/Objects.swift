@@ -56,7 +56,7 @@ struct Objects: View {
                 
                 Button("Add") {
                     if let selectedObj = selection {
-                        objectManager.saveObject(DSPObject(type: selectedObj, title: nil, currentPosition: CGPoint(x: 148, y: 43)))
+                        objectManager.saveObject(DSPObject(id: UUID(), type: selectedObj, title: nil, currentPosition: CGPoint(x: 148, y: 43)))
                         DSPNotification().update(object: self)
                     }
                     self.showSheet.toggle()
