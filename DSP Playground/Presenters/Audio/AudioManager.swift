@@ -119,12 +119,12 @@ class AVManager: ObservableObject {
             let amplitude = Double(20.0 * log10(normalizedBinMagnitude))
             
             // scale the resulting data
-//            let scaledAmplitude = (amplitude + 250) / 229.80
+            let scaledAmplitude = (amplitude + 250) / 229.80
             
             // add the amplitude to our array (further scaling array to look good in visualizer)
             DispatchQueue.main.async {
                 if(i/2 < self.amplitudes.count){
-                    var mappedAmplitude = self.map(n: amplitude, start1: 0.3, stop1: 0.9, start2: 0.0, stop2: 1.0)
+                    var mappedAmplitude = self.map(n: scaledAmplitude, start1: 0.3, stop1: 0.9, start2: 0.0, stop2: 1.0)
                     
                     // restrict the range to 0.0 - 1.0
                     if (mappedAmplitude < 0) {

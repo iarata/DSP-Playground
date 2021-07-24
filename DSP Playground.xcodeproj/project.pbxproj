@@ -10,25 +10,18 @@
 		BB16D81626A9E597004370C1 /* SampleConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB16D81526A9E597004370C1 /* SampleConductor.swift */; };
 		BB20189126AB0798000F2753 /* MetalTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20189026AB0798000F2753 /* MetalTest.swift */; };
 		BB20189426AB23AE000F2753 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = BB20189326AB23AE000F2753 /* Charts */; };
-		BB2018AD26AB2BB0000F2753 /* AxisLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20189926AB2BB0000F2753 /* AxisLabels.swift */; };
-		BB2018AE26AB2BB0000F2753 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20189A26AB2BB0000F2753 /* Chart.swift */; };
-		BB2018AF26AB2BB0000F2753 /* AreaChartStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20189D26AB2BB0000F2753 /* AreaChartStyle.swift */; };
-		BB2018B026AB2BB0000F2753 /* StackedAreaChartStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20189E26AB2BB0000F2753 /* StackedAreaChartStyle.swift */; };
-		BB2018B126AB2BB0000F2753 /* AreaChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20189F26AB2BB0000F2753 /* AreaChart.swift */; };
-		BB2018B226AB2BB0000F2753 /* AnyChartStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018A126AB2BB0000F2753 /* AnyChartStyle.swift */; };
-		BB2018B326AB2BB0000F2753 /* LineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018A226AB2BB0000F2753 /* LineType.swift */; };
-		BB2018B426AB2BB0000F2753 /* ChartStyleKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018A326AB2BB0000F2753 /* ChartStyleKey.swift */; };
-		BB2018B526AB2BB0000F2753 /* Environment+ChartStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018A426AB2BB0000F2753 /* Environment+ChartStyle.swift */; };
-		BB2018B626AB2BB0000F2753 /* View+ChartStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018A526AB2BB0000F2753 /* View+ChartStyle.swift */; };
-		BB2018B726AB2BB0000F2753 /* ChartStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018A626AB2BB0000F2753 /* ChartStyle.swift */; };
-		BB2018B826AB2BB0000F2753 /* ChartStyleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018A726AB2BB0000F2753 /* ChartStyleConfiguration.swift */; };
-		BB2018B926AB2BB0000F2753 /* StackedColumnChartStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018A926AB2BB0000F2753 /* StackedColumnChartStyle.swift */; };
-		BB2018BA26AB2BB0000F2753 /* ColumnChartStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018AA26AB2BB0000F2753 /* ColumnChartStyle.swift */; };
-		BB2018BB26AB2BB0000F2753 /* LineChartStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018AC26AB2BB0000F2753 /* LineChartStyle.swift */; };
 		BB2018E526AC301C000F2753 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018E326AC301C000F2753 /* ViewController.swift */; };
 		BB2018E626AC301C000F2753 /* Barcharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018E426AC301C000F2753 /* Barcharts.swift */; };
-		BB2018E926AC50E5000F2753 /* PlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018E826AC50E4000F2753 /* PlotView.swift */; };
 		BB2018EC26AC5164000F2753 /* AudioKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = BB2018EB26AC5164000F2753 /* AudioKitUI */; };
+		BB2018EE26AC6357000F2753 /* FilterInspect.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018ED26AC6357000F2753 /* FilterInspect.swift */; };
+		BB2018F026AC6517000F2753 /* HighPassFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018EF26AC6517000F2753 /* HighPassFilter.swift */; };
+		BB2018F326AC6558000F2753 /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = BB2018F226AC6558000F2753 /* SoundpipeAudioKit */; };
+		BB2018F626AC65EF000F2753 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = BB2018F526AC65EF000F2753 /* AudioKit */; };
+		BB2018FE26AC67FB000F2753 /* ParameterSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018F826AC67FB000F2753 /* ParameterSlider.swift */; };
+		BB2018FF26AC67FB000F2753 /* Cookbook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018F926AC67FB000F2753 /* Cookbook.swift */; };
+		BB20190026AC67FB000F2753 /* PlayerControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018FA26AC67FB000F2753 /* PlayerControls.swift */; };
+		BB20190226AC67FB000F2753 /* PlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018FC26AC67FB000F2753 /* PlotView.swift */; };
+		BB20190326AC67FB000F2753 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018FD26AC67FB000F2753 /* ColorManager.swift */; };
 		BB24F41226A3396300CF3AD7 /* DSPObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41126A3396300CF3AD7 /* DSPObject.swift */; };
 		BB24F41426A34B5700CF3AD7 /* DSPNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41326A34B5700CF3AD7 /* DSPNotification.swift */; };
 		BB24F41626A3692700CF3AD7 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41526A3692700CF3AD7 /* Extentions.swift */; };
@@ -82,24 +75,15 @@
 /* Begin PBXFileReference section */
 		BB16D81526A9E597004370C1 /* SampleConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleConductor.swift; sourceTree = "<group>"; };
 		BB20189026AB0798000F2753 /* MetalTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalTest.swift; sourceTree = "<group>"; };
-		BB20189926AB2BB0000F2753 /* AxisLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxisLabels.swift; sourceTree = "<group>"; };
-		BB20189A26AB2BB0000F2753 /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
-		BB20189D26AB2BB0000F2753 /* AreaChartStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaChartStyle.swift; sourceTree = "<group>"; };
-		BB20189E26AB2BB0000F2753 /* StackedAreaChartStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackedAreaChartStyle.swift; sourceTree = "<group>"; };
-		BB20189F26AB2BB0000F2753 /* AreaChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaChart.swift; sourceTree = "<group>"; };
-		BB2018A126AB2BB0000F2753 /* AnyChartStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyChartStyle.swift; sourceTree = "<group>"; };
-		BB2018A226AB2BB0000F2753 /* LineType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineType.swift; sourceTree = "<group>"; };
-		BB2018A326AB2BB0000F2753 /* ChartStyleKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartStyleKey.swift; sourceTree = "<group>"; };
-		BB2018A426AB2BB0000F2753 /* Environment+ChartStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Environment+ChartStyle.swift"; sourceTree = "<group>"; };
-		BB2018A526AB2BB0000F2753 /* View+ChartStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+ChartStyle.swift"; sourceTree = "<group>"; };
-		BB2018A626AB2BB0000F2753 /* ChartStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartStyle.swift; sourceTree = "<group>"; };
-		BB2018A726AB2BB0000F2753 /* ChartStyleConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartStyleConfiguration.swift; sourceTree = "<group>"; };
-		BB2018A926AB2BB0000F2753 /* StackedColumnChartStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackedColumnChartStyle.swift; sourceTree = "<group>"; };
-		BB2018AA26AB2BB0000F2753 /* ColumnChartStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnChartStyle.swift; sourceTree = "<group>"; };
-		BB2018AC26AB2BB0000F2753 /* LineChartStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartStyle.swift; sourceTree = "<group>"; };
 		BB2018E326AC301C000F2753 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BB2018E426AC301C000F2753 /* Barcharts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Barcharts.swift; sourceTree = "<group>"; };
-		BB2018E826AC50E4000F2753 /* PlotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotView.swift; sourceTree = "<group>"; };
+		BB2018ED26AC6357000F2753 /* FilterInspect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterInspect.swift; sourceTree = "<group>"; };
+		BB2018EF26AC6517000F2753 /* HighPassFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighPassFilter.swift; sourceTree = "<group>"; };
+		BB2018F826AC67FB000F2753 /* ParameterSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterSlider.swift; sourceTree = "<group>"; };
+		BB2018F926AC67FB000F2753 /* Cookbook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cookbook.swift; sourceTree = "<group>"; };
+		BB2018FA26AC67FB000F2753 /* PlayerControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerControls.swift; sourceTree = "<group>"; };
+		BB2018FC26AC67FB000F2753 /* PlotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotView.swift; sourceTree = "<group>"; };
+		BB2018FD26AC67FB000F2753 /* ColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		BB24F41126A3396300CF3AD7 /* DSPObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSPObject.swift; sourceTree = "<group>"; };
 		BB24F41326A34B5700CF3AD7 /* DSPNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSPNotification.swift; sourceTree = "<group>"; };
 		BB24F41526A3692700CF3AD7 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
@@ -146,6 +130,8 @@
 			files = (
 				BB20189426AB23AE000F2753 /* Charts in Frameworks */,
 				BB2018EC26AC5164000F2753 /* AudioKitUI in Frameworks */,
+				BB2018F626AC65EF000F2753 /* AudioKit in Frameworks */,
+				BB2018F326AC6558000F2753 /* SoundpipeAudioKit in Frameworks */,
 				BB24F43D26A5BB8800CF3AD7 /* PythonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,73 +153,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BB20189826AB2BB0000F2753 /* Chart */ = {
-			isa = PBXGroup;
-			children = (
-				BB20189926AB2BB0000F2753 /* AxisLabels.swift */,
-				BB20189A26AB2BB0000F2753 /* Chart.swift */,
-				BB20189B26AB2BB0000F2753 /* Styles */,
-			);
-			path = Chart;
-			sourceTree = "<group>";
-		};
-		BB20189B26AB2BB0000F2753 /* Styles */ = {
-			isa = PBXGroup;
-			children = (
-				BB20189C26AB2BB0000F2753 /* Area */,
-				BB2018A026AB2BB0000F2753 /* Style */,
-				BB2018A826AB2BB0000F2753 /* Column */,
-				BB2018AB26AB2BB0000F2753 /* Line */,
-			);
-			path = Styles;
-			sourceTree = "<group>";
-		};
-		BB20189C26AB2BB0000F2753 /* Area */ = {
-			isa = PBXGroup;
-			children = (
-				BB20189D26AB2BB0000F2753 /* AreaChartStyle.swift */,
-				BB20189E26AB2BB0000F2753 /* StackedAreaChartStyle.swift */,
-				BB20189F26AB2BB0000F2753 /* AreaChart.swift */,
-			);
-			path = Area;
-			sourceTree = "<group>";
-		};
-		BB2018A026AB2BB0000F2753 /* Style */ = {
-			isa = PBXGroup;
-			children = (
-				BB2018A126AB2BB0000F2753 /* AnyChartStyle.swift */,
-				BB2018A226AB2BB0000F2753 /* LineType.swift */,
-				BB2018A326AB2BB0000F2753 /* ChartStyleKey.swift */,
-				BB2018A426AB2BB0000F2753 /* Environment+ChartStyle.swift */,
-				BB2018A526AB2BB0000F2753 /* View+ChartStyle.swift */,
-				BB2018A626AB2BB0000F2753 /* ChartStyle.swift */,
-				BB2018A726AB2BB0000F2753 /* ChartStyleConfiguration.swift */,
-			);
-			path = Style;
-			sourceTree = "<group>";
-		};
-		BB2018A826AB2BB0000F2753 /* Column */ = {
-			isa = PBXGroup;
-			children = (
-				BB2018A926AB2BB0000F2753 /* StackedColumnChartStyle.swift */,
-				BB2018AA26AB2BB0000F2753 /* ColumnChartStyle.swift */,
-			);
-			path = Column;
-			sourceTree = "<group>";
-		};
-		BB2018AB26AB2BB0000F2753 /* Line */ = {
-			isa = PBXGroup;
-			children = (
-				BB2018AC26AB2BB0000F2753 /* LineChartStyle.swift */,
-			);
-			path = Line;
-			sourceTree = "<group>";
-		};
 		BB2018E726AC3D16000F2753 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
+				BB2018F726AC67FB000F2753 /* Reusable Components */,
+				BB2018ED26AC6357000F2753 /* FilterInspect.swift */,
+				BB2018EF26AC6517000F2753 /* HighPassFilter.swift */,
 			);
 			path = Filter;
+			sourceTree = "<group>";
+		};
+		BB2018F726AC67FB000F2753 /* Reusable Components */ = {
+			isa = PBXGroup;
+			children = (
+				BB2018F826AC67FB000F2753 /* ParameterSlider.swift */,
+				BB2018F926AC67FB000F2753 /* Cookbook.swift */,
+				BB2018FA26AC67FB000F2753 /* PlayerControls.swift */,
+				BB2018FC26AC67FB000F2753 /* PlotView.swift */,
+				BB2018FD26AC67FB000F2753 /* ColorManager.swift */,
+			);
+			path = "Reusable Components";
 			sourceTree = "<group>";
 		};
 		BB24F41B26A36C7F00CF3AD7 /* ObjectViews */ = {
@@ -260,7 +199,6 @@
 		BB24F42826A46C1C00CF3AD7 /* Graph */ = {
 			isa = PBXGroup;
 			children = (
-				BB2018E826AC50E4000F2753 /* PlotView.swift */,
 				BB24F44126A5FFC900CF3AD7 /* TestPlot */,
 				BB24F42926A46C2B00CF3AD7 /* TimeDomain.swift */,
 				BB24F43926A5B98100CF3AD7 /* PythonPlot.swift */,
@@ -329,7 +267,6 @@
 		BB2726B226A1C371003BA560 /* DSP Playground */ = {
 			isa = PBXGroup;
 			children = (
-				BB20189826AB2BB0000F2753 /* Chart */,
 				BB24F43E26A5BBEA00CF3AD7 /* Python */,
 				BB2726E826A2D199003BA560 /* Presenters */,
 				BB2726DF26A1E17A003BA560 /* View */,
@@ -442,6 +379,8 @@
 				BB24F43C26A5BB8800CF3AD7 /* PythonKit */,
 				BB20189326AB23AE000F2753 /* Charts */,
 				BB2018EB26AC5164000F2753 /* AudioKitUI */,
+				BB2018F226AC6558000F2753 /* SoundpipeAudioKit */,
+				BB2018F526AC65EF000F2753 /* AudioKit */,
 			);
 			productName = "DSP Playground";
 			productReference = BB2726B026A1C371003BA560 /* DSP Playground.app */;
@@ -518,6 +457,8 @@
 				BB24F43B26A5BB8800CF3AD7 /* XCRemoteSwiftPackageReference "PythonKit" */,
 				BB20189226AB23AE000F2753 /* XCRemoteSwiftPackageReference "swiftui-charts" */,
 				BB2018EA26AC5164000F2753 /* XCRemoteSwiftPackageReference "AudioKitUI" */,
+				BB2018F126AC6558000F2753 /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */,
+				BB2018F426AC65EF000F2753 /* XCRemoteSwiftPackageReference "AudioKit" */,
 			);
 			productRefGroup = BB2726B126A1C371003BA560 /* Products */;
 			projectDirPath = "";
@@ -562,50 +503,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB20190026AC67FB000F2753 /* PlayerControls.swift in Sources */,
 				BB24F41226A3396300CF3AD7 /* DSPObject.swift in Sources */,
-				BB2018E926AC50E5000F2753 /* PlotView.swift in Sources */,
 				BB2018E526AC301C000F2753 /* ViewController.swift in Sources */,
 				BB2726F626A307CA003BA560 /* ObjectItem.swift in Sources */,
-				BB2018B426AB2BB0000F2753 /* ChartStyleKey.swift in Sources */,
 				BB2018E626AC301C000F2753 /* Barcharts.swift in Sources */,
 				BB2726EB26A2D1BF003BA560 /* ObjectManager.swift in Sources */,
 				BB24F44326A5FFE200CF3AD7 /* VerticalBar.swift in Sources */,
 				BB24F41A26A36BD700CF3AD7 /* OutputDeviceOV.swift in Sources */,
+				BB2018FF26AC67FB000F2753 /* Cookbook.swift in Sources */,
 				BB24F42D26A46E6100CF3AD7 /* AudioInspect.swift in Sources */,
-				BB2018B926AB2BB0000F2753 /* StackedColumnChartStyle.swift in Sources */,
 				BB2726B626A1C371003BA560 /* ContentView.swift in Sources */,
 				BB16D81626A9E597004370C1 /* SampleConductor.swift in Sources */,
-				BB2018B226AB2BB0000F2753 /* AnyChartStyle.swift in Sources */,
-				BB2018B726AB2BB0000F2753 /* ChartStyle.swift in Sources */,
 				BB20189126AB0798000F2753 /* MetalTest.swift in Sources */,
 				BB24F41826A36A8E00CF3AD7 /* FilterOV.swift in Sources */,
 				BB24F42A26A46C2B00CF3AD7 /* TimeDomain.swift in Sources */,
-				BB2018AF26AB2BB0000F2753 /* AreaChartStyle.swift in Sources */,
 				BB24F42226A40E1200CF3AD7 /* AudioManager.swift in Sources */,
-				BB2018BA26AB2BB0000F2753 /* ColumnChartStyle.swift in Sources */,
-				BB2018BB26AB2BB0000F2753 /* LineChartStyle.swift in Sources */,
 				BB24F44526A600C700CF3AD7 /* AmplitudeVisualizer.swift in Sources */,
 				BB2726F226A2F0A6003BA560 /* Objects.swift in Sources */,
 				BB2726F926A31470003BA560 /* SidebarItem.swift in Sources */,
-				BB2018B026AB2BB0000F2753 /* StackedAreaChartStyle.swift in Sources */,
-				BB2018B126AB2BB0000F2753 /* AreaChart.swift in Sources */,
-				BB2018AD26AB2BB0000F2753 /* AxisLabels.swift in Sources */,
+				BB20190226AC67FB000F2753 /* PlotView.swift in Sources */,
 				BB2726E726A2D114003BA560 /* AudioFileOV.swift in Sources */,
-				BB2018B626AB2BB0000F2753 /* View+ChartStyle.swift in Sources */,
-				BB2018B326AB2BB0000F2753 /* LineType.swift in Sources */,
+				BB2018EE26AC6357000F2753 /* FilterInspect.swift in Sources */,
 				BB24F43526A55CE200CF3AD7 /* AudioModel.swift in Sources */,
-				BB2018B826AB2BB0000F2753 /* ChartStyleConfiguration.swift in Sources */,
+				BB2018FE26AC67FB000F2753 /* ParameterSlider.swift in Sources */,
+				BB2018F026AC6517000F2753 /* HighPassFilter.swift in Sources */,
 				BB24F42726A4390600CF3AD7 /* Inspector.swift in Sources */,
-				BB2018AE26AB2BB0000F2753 /* Chart.swift in Sources */,
 				BB2726F026A2E776003BA560 /* ExtraTEST.swift in Sources */,
 				BB24F43A26A5B98100CF3AD7 /* PythonPlot.swift in Sources */,
+				BB20190326AC67FB000F2753 /* ColorManager.swift in Sources */,
 				BB24F41626A3692700CF3AD7 /* Extentions.swift in Sources */,
 				BB24F41426A34B5700CF3AD7 /* DSPNotification.swift in Sources */,
 				BB24F41F26A3973C00CF3AD7 /* ConnectionManager.swift in Sources */,
 				BB24F41D26A36E2300CF3AD7 /* ObjectOVModifier.swift in Sources */,
 				BB2726E226A1E18F003BA560 /* Home.swift in Sources */,
 				BB2726E426A1E196003BA560 /* Sidebar.swift in Sources */,
-				BB2018B526AB2BB0000F2753 /* Environment+ChartStyle.swift in Sources */,
 				BB2726B426A1C371003BA560 /* DSP_PlaygroundApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -947,6 +879,22 @@
 				kind = branch;
 			};
 		};
+		BB2018F126AC6558000F2753 /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/SoundpipeAudioKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.0;
+			};
+		};
+		BB2018F426AC65EF000F2753 /* XCRemoteSwiftPackageReference "AudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.0;
+			};
+		};
 		BB24F43B26A5BB8800CF3AD7 /* XCRemoteSwiftPackageReference "PythonKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pvieito/PythonKit";
@@ -967,6 +915,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BB2018EA26AC5164000F2753 /* XCRemoteSwiftPackageReference "AudioKitUI" */;
 			productName = AudioKitUI;
+		};
+		BB2018F226AC6558000F2753 /* SoundpipeAudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB2018F126AC6558000F2753 /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */;
+			productName = SoundpipeAudioKit;
+		};
+		BB2018F526AC65EF000F2753 /* AudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB2018F426AC65EF000F2753 /* XCRemoteSwiftPackageReference "AudioKit" */;
+			productName = AudioKit;
 		};
 		BB24F43C26A5BB8800CF3AD7 /* PythonKit */ = {
 			isa = XCSwiftPackageProductDependency;

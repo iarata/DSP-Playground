@@ -33,6 +33,8 @@ struct Inspector: View {
             
             if selected.type == .audioFile {
                 AudioInspect(dspObject: $selected, AVMan: avmanager)
+            } else if selected.type == .filter {
+                FilterInspect(dspObject: $selected, AVMan: avmanager)
             }
             
             Spacer()

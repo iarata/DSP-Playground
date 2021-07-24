@@ -40,10 +40,7 @@ struct AudioInspect: View {
                 Cell(leading: "Path", trailing: inspectModel.path)
             }
             
-            HStack {
-                Text(dspObject.id.uuidString).font(.footnote)
-                Spacer()
-            }.padding(.bottom,3)
+            
             
             // MARK: - Audio Progress
             if AVMan.isPlaying {
@@ -94,11 +91,13 @@ struct AudioInspect: View {
                         
                     }
                     DispatchQueue.global(qos: .background).async {
-                        while AVMan.isPlaying {
+                        currentTime = 0
+                        while AVMan.isPlaying && AVMan.player.getCurrentTime() != inspectModel.duration {
                             amsc = AVMan.amplitudes
                             currentTime = AVMan.player.getCurrentTime()
                         }
-                        currentTime = 0
+                        AVMan.stop()
+
                     }
                 } label: {
                     Image(systemName: AVMan.player.isPlaying ? "stop.fill" : "play.fill").font(.system(size: 18))
@@ -117,9 +116,14 @@ struct AudioInspect: View {
                 
                 
             }
-//            TimeDomain(manager: $AVMan, amplitudes: $AVMan.amplitudes).frame(height: 100).drawingGroup(opaque: true, colorMode: .extendedLinear)
             Spacer()
             
+            
+            // Object UUID
+            HStack {
+                Text(dspObject.id.uuidString).font(.footnote)
+                Spacer()
+            }.padding(.bottom,3)
             
         }
         .padding(6)
@@ -133,6 +137,10 @@ struct AudioInspect: View {
         })
         .onAppear {
             inspectModel = audioModelMTG.get(dspID: dspObject.id)
+        }
+        
+        .onDisappear {
+            AVMan.player.stop()
         }
     }
 }
