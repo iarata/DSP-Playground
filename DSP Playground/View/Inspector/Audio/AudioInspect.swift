@@ -24,9 +24,8 @@ struct AudioInspect: View {
     
     @State var inspectorUpdates = DSPNotification().inspectPublish()
     @State var dspObjectUpdates = DSPNotification().publisher()
-    
-//    @State var audioFileToProcess =
-    
+    @State var amsc = [0.0, 0.0, 0.0]
+        
     var body: some View {
         // MARK: - Audio Details
         VStack {
@@ -38,7 +37,6 @@ struct AudioInspect: View {
             if selectedAudioPath != "" {
                 Cell(leading: "File Type", trailing: URL(string: inspectModel.path)?.pathExtension ?? "Unavailable")
                 Cell(leading: "Duration", trailing: timeString(time: TimeInterval(inspectModel.duration)))
-                Cell(leading: "Duration", trailing: timeString(time: TimeInterval(inspectModel.duration)))
                 Cell(leading: "Path", trailing: inspectModel.path)
             }
             
@@ -48,7 +46,7 @@ struct AudioInspect: View {
             }.padding(.bottom,3)
             
             // MARK: - Audio Progress
-            if AVMan.player.isPlaying {
+            if AVMan.isPlaying {
                 VStack(spacing: 0) {
                     HStack {
                         Spacer()
@@ -63,11 +61,20 @@ struct AudioInspect: View {
                 // MARK: - Load Button
                 Button {
                     withAnimation {
+                        // open file selecter
                         selectedAudioPath = AVMan.selectFile()
+                        
+                        // update object name
                         objectMTG.updateName(of: dspObject.id, to: NSURL(string: selectedAudioPath)?.deletingPathExtension?.lastPathComponent ?? "None", position: dspObject.currentPosition)
                         
+                        // make audio model
                         inspectModel = AudioModel(objectID: dspObject.id, path: selectedAudioPath, duration: AVMan.player.duration)
+                        
+                        // add audio model to model manager
                         audioModelMTG.add(model: inspectModel)
+                        
+                        
+                        // send update notification
                         DSPNotification().update(object: self)
                     }
                 } label: {
@@ -78,18 +85,18 @@ struct AudioInspect: View {
                 // MARK: - Play Button
                 Button {
                     withAnimation {
-                        if AVMan.player.isPlaying {
-                            AVMan.player.stop()
-                           
+                        if AVMan.isPlaying {
+                            AVMan.stop()
                         } else {
                             AVMan.initAudio(from: selectedAudioPath)
-                            AVMan.player.play()
+                            AVMan.start()
                         }
+                        
                     }
                     DispatchQueue.global(qos: .background).async {
-                        while AVMan.player.isPlaying {
+                        while AVMan.isPlaying {
+                            amsc = AVMan.amplitudes
                             currentTime = AVMan.player.getCurrentTime()
-                            
                         }
                         currentTime = 0
                     }
@@ -100,16 +107,20 @@ struct AudioInspect: View {
                 .disabled(selectedAudioPath == "" ? true : false)
                 
                 
-//                Button("Open Charts") {
-//                    TimeDomain().frame(width: 700, height: 300).openInWindow(title: "Graph Freq-Time", sender: self)
-//                }
-                
                 Button("Open Charts") {
-                    PythonPlot().openInWindow(title: "PythonKit Test", sender: self)
+                    TimeDomain(manager: $AVMan).frame(width: 800, height: 300).drawingGroup().openInWindow(title: "Graph Freq-Time", sender: self)
                 }
+                
+//                Button("Open Charts") {
+//                    PythonPlot().openInWindow(title: "PythonKit Test", sender: self)
+//                }
                 
                 
             }
+//            TimeDomain(manager: $AVMan, amplitudes: $AVMan.amplitudes).frame(height: 100).drawingGroup(opaque: true, colorMode: .extendedLinear)
+            Spacer()
+            
+            
         }
         .padding(6)
         .onReceive(inspectorUpdates) { (output) in

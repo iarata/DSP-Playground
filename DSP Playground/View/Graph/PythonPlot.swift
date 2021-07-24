@@ -10,7 +10,7 @@ import PythonKit
 
 struct PythonPlot: View {
     
-    @State var myConnector = PythonConnecting()
+    @State var myConnector = PythonConnector()
     @ObservedObject var objectMTG = ObjectManager()
     
     var body: some View {
@@ -25,13 +25,22 @@ struct PythonPlot: View {
     
 }
 
-class PythonConnecting {
+class PythonConnector {
     
     var error: String?
     
-//    init() {
-//        PythonLibrary.useVersion(3, 9)
-//    }
+    func initKit() {
+        PythonLibrary.useVersion(3, 9)
+        let sys = Python.import("sys")
+        
+        print("Python \(sys.version_info.major).\(sys.version_info.major)")
+        print("Python Version: \(sys.version)")
+        print("Python Encoding: \(sys.getdefaultencoding().upper())")
+        let myPath = "/Users/alireza/Desktop/iOS/DSP Playground/DSP Playground/Python/"
+        let path = String(Bundle.main.resourcePath!)
+        sys.path.append(path)
+        sys.path.append(myPath)
+    }
     
     func run() {
         
@@ -52,18 +61,7 @@ class PythonConnecting {
     }
     
     func pythonHello() {
-        let sys = Python.import("sys")
-        let os = Python.import("os")
         
-        print("Python \(sys.version_info.major).\(sys.version_info.major)")
-        print("Python Version: \(sys.version)")
-        print("Python Encoding: \(sys.getdefaultencoding().upper())")
-        print("Working Directory: \(os.getcwd())")
-        let myPath = "/Users/alireza/Desktop/iOS/DSP Playground/DSP Playground/Python/"
-        let path = String(Bundle.main.resourcePath!)
-        sys.path.append(path)
-        print(Bundle.main.resourcePath!)
-        sys.path.append(myPath)
         
         do {
             let ronn = try Python.attemptImport("PythonKitTest")
@@ -75,8 +73,6 @@ class PythonConnecting {
             print(error)
         }
         
-//        error = String(sys.version)
-//        let helloTest = Python.import("PythonKitTest")
         
     }
     
