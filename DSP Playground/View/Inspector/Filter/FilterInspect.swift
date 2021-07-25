@@ -11,13 +11,14 @@ struct FilterInspect: View {
     
     @AppStorage("selectedAudioPath") var selectedAudioPath: String = ""
     @ObservedObject var audioModelMTG = AudioModelManager()
-
+    @ObservedObject var filterMTG = FilterModelManager()
     @ObservedObject var objectMTG = ObjectManager()
     
     @Binding var dspObject: DSPObject
+    @State var filterObject = FilterModel(boundedTo: UUID(), path: "", type: .highPass, audio: UUID())
     
     @State var AVMan: AVManager
-
+    
     @State var inspectorUpdates = DSPNotification().inspectPublish()
     @State var dspObjectUpdates = DSPNotification().publisher()
     
@@ -25,19 +26,21 @@ struct FilterInspect: View {
     
     @State var audioModels = [AudioModel]()
     @State var selectedAudioModel = AudioModel(objectID: UUID(), path: "", duration: 0.0)
-
     @State var selectedFilterType:FilterType = .highPass
     
     @State var showFilter = false
-        
+    
     var body: some View {
         // MARK: - Filter Details
         VStack {
             Cell(leading: "Title") {
-                TextField("", text: $filterModelName)
-                    .foregroundColor(.secondary)
-                    .textFieldStyle(PlainTextFieldStyle())
-
+                HStack {
+                    Spacer()
+                    TextField("", text: $filterModelName)
+                        .foregroundColor(.secondary)
+                        .textFieldStyle(PlainTextFieldStyle())
+                }
+                
             }
             
             Cell(leading: "Audio") {
@@ -46,7 +49,7 @@ struct FilterInspect: View {
                         Text(objectMTG.getObject(id: model.objectID)?.title ?? "Audio File").tag(model)
                     }
                 }
-
+                
             }
             
             Cell(leading: "Filter") {
@@ -63,6 +66,8 @@ struct FilterInspect: View {
                     
                     if self.selectedAudioModel.path != "" {
                         self.showFilter = true
+                        self.filterObject = FilterModel(boundedTo: dspObject.id, path: selectedAudioPath, type: selectedFilterType, audio: selectedAudioModel.id)
+                        filterMTG.add(model: self.filterObject)
                     }
                     
                     DSPNotification().update(object: self)
@@ -74,9 +79,9 @@ struct FilterInspect: View {
                 case .highPass:
                     HighPassFilterView(conductor: HighPassFilterConductor(audioFile: AVMan.selectedAudioPath))
                 case .lowPass:
-                    Text("asc")
+                    LowPassFilterView(conductor: LowPassFilterConductor(audioFile: AVMan.selectedAudioPath))
                 case .reverb:
-                    Text("as")
+                    ReverbView(conductor: ReverbConductor(audioFile: AVMan.selectedAudioPath))
                 }
             }
             Spacer()
@@ -90,11 +95,17 @@ struct FilterInspect: View {
             self.filterModelName = dspObject.title ?? ""
             self.audioModels = AudioModelManager().getAll()
             
+            if filterMTG.getAll().isNotEmpty {
+                self.filterObject = filterMTG.get(boundedID: dspObject.id)
+                self.selectedAudioModel = audioModelMTG.get(id: filterObject.audioModelID)
+                self.selectedFilterType = filterObject.type
+                self.showFilter = true
+            }
             
             
         }
-//        .onReceive([self.selectedAudioModel].publisher) { (output) in
-//            print(selectedAudioModel.path)
-//        }
+        
+        
+        
     }
 }

@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import AudioKit
+import AudioKitUI
+import AVFoundation
 
 struct AudioInspect: View {
     
@@ -27,7 +30,7 @@ struct AudioInspect: View {
     @State var amsc = [0.0, 0.0, 0.0]
     
     @State var browseButtonHover = false
-        
+    
     var body: some View {
         // MARK: - Audio Details
         VStack {
@@ -36,11 +39,14 @@ struct AudioInspect: View {
                 Spacer()
             }
             Cell(leading: "Title") { Text(dspObject.title ?? "None").foregroundColor(.secondary) }
-
+            
             if selectedAudioPath != "" {
                 Cell(leading: "File Type") { Text(URL(string: inspectModel.path)?.pathExtension ?? "Unavailable").foregroundColor(.secondary) }
                 Cell(leading: "Duration") { Text(timeString(time: TimeInterval(inspectModel.duration))).foregroundColor(.secondary) }
                 Cell(leading: "Path") { Text(inspectModel.path).foregroundColor(.secondary) }
+                
+                ParameterSlider(text: "Volume", parameter: self.$AVMan.player.volume, range: 0...2)
+                Text("Values above 1 will have gain applied.").font(.footnote)
             }
             Cell(leading: "Select File") {
                 // MARK: - Load Button
@@ -79,15 +85,13 @@ struct AudioInspect: View {
             
             
             // MARK: - Audio Progress
-            if AVMan.isPlaying {
-                VStack(spacing: 0) {
-                    HStack {
-                        Spacer()
-                        Text(timeString(time: TimeInterval(currentTime))).foregroundColor(Color.secondary).padding(.horizontal, 1)
-                    }
-                    ProgressView(value: (currentTime > AVMan.totalTime) ? AVMan.totalTime : currentTime, total: AVMan.totalTime)
+            VStack(spacing: 0) {
+                HStack {
+                    Spacer()
+                    Text(timeString(time: TimeInterval(currentTime))).foregroundColor(Color.secondary).padding(.horizontal, 1)
                 }
-            } 
+                ProgressView(value: (currentTime > AVMan.totalTime) ? AVMan.totalTime : currentTime, total: AVMan.totalTime)
+            }
             
             HStack(spacing: 25) {
                 
@@ -104,15 +108,15 @@ struct AudioInspect: View {
                         }
                         
                     }
-                    DispatchQueue.global(qos: .background).async {
-                        currentTime = 0
-                        while AVMan.isPlaying && AVMan.player.getCurrentTime() != inspectModel.duration {
-                            amsc = AVMan.amplitudes
-                            currentTime = AVMan.player.getCurrentTime()
-                        }
-                        AVMan.stop()
-
-                    }
+                    //                    DispatchQueue.global(qos: .unspecified).async {
+                    //                        currentTime = 0
+                    //                        while AVMan.isPlaying && AVMan.player.getCurrentTime() != inspectModel.duration {
+                    //                            amsc = AVMan.amplitudes
+                    //                            currentTime = AVMan.player.getCurrentTime()
+                    //                        }
+                    //                        AVMan.stop()
+                    //
+                    //                    }
                 } label: {
                     Image(systemName: AVMan.player.isPlaying ? "stop.fill" : "play.fill").font(.system(size: 18))
                 }.buttonStyle(PlainButtonStyle())
@@ -120,13 +124,9 @@ struct AudioInspect: View {
                 .disabled(selectedAudioPath == "" ? true : false)
                 
                 
-                Button("Open Charts") {
-                    TimeDomain(manager: $AVMan).frame(width: 800, height: 300).drawingGroup().openInWindow(title: "Graph Freq-Time", sender: self)
-                }
-                
-//                Button("Open Charts") {
-//                    PythonPlot().openInWindow(title: "PythonKit Test", sender: self)
-//                }
+                //                Button("Open Charts") {
+                //                    PythonPlot().openInWindow(title: "PythonKit Test", sender: self)
+                //                }
                 
                 
             }
@@ -149,5 +149,53 @@ struct AudioInspect: View {
         .onDisappear {
             AVMan.player.stop()
         }
+        .toolbar {
+            ToolbarItemGroup(placement: .automatic) {
+                Button {
+                    FFTView(AVMan.player).frame(width: 800, height: 300).openInWindow(title: "Graph Freq-Time", sender: self)
+                } label: {
+                    Label("Bar Chart", systemImage: "chart.bar.xaxis")
+                }.disabled(!AVMan.isPlaying)
+            }
+        }
+    }
+}
+
+
+
+struct NoFilterData {
+    var volume: AUValue = 0.5
+}
+
+class NormalConductor: ObservableObject, ProcessesPlayerInput {
+    let engine = AudioEngine()
+    let player = AudioPlayer()
+    
+    let buffer: AVAudioPCMBuffer
+    
+    var audioFileURL: String
+    
+    init(audioFile: String) {
+        audioFileURL = audioFile
+        buffer = Cookbook().sourceBuffer(url: audioFileURL)
+        player.buffer = buffer
+        player.file = try! AVAudioFile(forReading: URL(string: audioFileURL)!)
+        player.isLooping = false
+        
+        engine.output = player
+    }
+    
+    @Published var data = NoFilterData() {
+        didSet {
+            player.volume = data.volume
+        }
+    }
+    
+    func start() {
+        do { try engine.start() } catch let err { Log(err) }
+    }
+    
+    func stop() {
+        engine.stop()
     }
 }

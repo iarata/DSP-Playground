@@ -21,7 +21,7 @@ struct AudioFileOV: View {
     @State var mousePosition: CGPoint
     @State var connectionMG: ConnectionManager
     
-    
+
     var body: some View {
             ZStack {
                 HStack {

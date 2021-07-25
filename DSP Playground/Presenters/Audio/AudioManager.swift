@@ -85,7 +85,9 @@ class AVManager: ObservableObject {
             self.selectedFile = panel.url!.absoluteString
             self.selectedAudioPath = panel.url!.absoluteString
         }
-        initAudio(from: selectedAudioPath)
+        if URL(string: selectedAudioPath) != nil {
+            initAudio(from: selectedAudioPath)
+        }
         return panel.url?.absoluteString ?? ""
     }
     

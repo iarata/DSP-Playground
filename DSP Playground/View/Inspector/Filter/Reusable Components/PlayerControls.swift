@@ -11,40 +11,48 @@ struct PlayerControls: View {
     @Environment(\.colorScheme) var colorScheme
     
     var conductor: ProcessesPlayerInput
-    let serialQueue = DispatchQueue(label: "swiftlee.serial.queue", attributes: .concurrent)
-
     
     @State var isPlaying = false
-    
-    @State private var totalTime: TimeInterval = 100
-    @State private var currentTime: TimeInterval = 0
+    @State var isPause = false
     
     var body: some View {
         VStack {
-            
-            // MARK: - Audio Progress
-            
             HStack(spacing: 10) {
                 
                 Button(action: {
                     self.isPlaying ? self.conductor.player.stop() : self.conductor.player.play()
                     self.isPlaying.toggle()
-                    self.totalTime = self.conductor.player.duration
-                    DispatchQueue.global().async {
-                        while isPlaying {
-                            currentTime = self.conductor.player.getCurrentTime()
-                        }
-                    }
                     
                 }, label: {
-                    Image(systemName: isPlaying ? "stop.fill" : "play.fill")
+                    Image(systemName: isPlaying ? "stop.fill" : "play.fill").font(.system(size: 18, weight: .semibold, design: .rounded))
+                        //                        .padding(5)
+                        .frame(width: 40, height: 40)
+                        .imageScale(.medium)
+                        .foregroundColor(.white)
+                        .background(isPlaying ? Color.red : Color.green)
+                        .clipShape(Circle())
+                    
                 })
-                .padding()
-                .background(isPlaying ? Color.red : Color.green)
-                .foregroundColor(.white)
-                .font(.system(size: 14, weight: .semibold, design: .rounded))
-                .cornerRadius(25.0)
-                .shadow(color: ColorManager.accentColor.opacity(0.4), radius: 5, x: 0.0, y: 3)
+                .buttonStyle(PlainButtonStyle())
+                
+                
+                Button(action: {
+                    self.isPause ? self.conductor.player.play() : self.conductor.player.pause()
+                    self.isPause.toggle()
+                    
+                }, label: {
+                    Image(systemName: isPause ? "playpause.fill" : "pause.fill").font(.system(size: 18, weight: .semibold, design: .rounded))
+                        //                        .padding(5)
+                        
+                        .frame(width: 40, height: 40)
+                        .imageScale(.medium)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .clipShape(Circle())
+                    
+                })
+                .buttonStyle(PlainButtonStyle())
+                
             }
             
             .padding()

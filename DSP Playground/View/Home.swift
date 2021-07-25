@@ -15,15 +15,16 @@ struct Home: View {
     
     @State private var clickLocatin = NSPoint(x: 0, y: 0)
     
-    @State var objects = [DSPObject]()
+    @Binding var objects: [DSPObject]
     @State private var connections = [InitialConnection]()
     @State private var showingSheet = false
     @State private var showDeleteAlert = false
     
     @State var pub = DSPNotification().publisher()
     
-    @State var showInspector = false
-    @State var selectedElement = DSPObject(id: UUID(), type: .audioFile, title: "", currentPosition: CGPoint(x:0, y:0), path: "")
+    @Binding var showInspector: Bool
+    @Binding var selectedElement: DSPObject
+//        = DSPObject(id: UUID(), type: .audioFile, title: "", currentPosition: CGPoint(x:0, y:0), path: "")
     
     @State var mousePosition = CGPoint(x: 0, y: 0)
     @State var mouseClicked = false
@@ -87,10 +88,7 @@ struct Home: View {
 //                        mouseClicked.toggle()
                     }
                 }
-                if showInspector {
-                    Inspector(objects: $objects, selected: $selectedElement, displayInspect: $showInspector).frame(maxWidth: 250, maxHeight: .infinity)
-
-                }
+                
             }
             
         }
@@ -118,12 +116,7 @@ struct Home: View {
                 .help(Text("Delete All"))
                 .keyboardShortcut("d", modifiers: .command)
                 
-                Button {
-                    print("Help")
-                } label: {
-                    Label("Help", systemImage: "questionmark.circle")
-                }
-                .help(Text("Help"))
+                
                 
             }
             
@@ -144,7 +137,13 @@ struct Home: View {
         
         .onReceive(pub) { (output) in
             withAnimation {
+                
                 self.objects = objectMTG.getObjects()
+                if self.objects.isEmpty {
+                    self.showInspector = false
+                }
+
+                
             }
         }
         

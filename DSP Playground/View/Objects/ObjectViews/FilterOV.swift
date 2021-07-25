@@ -62,7 +62,10 @@ struct FilterOV: View {
         }
         .onReceive(pub) { (output) in
             withAnimation {
-                dspObject = objectManager.getObject(id: dspObject.id)!
+                if let dobject = objectManager.getObject(id: dspObject.id) {
+                    dspObject.title = dobject.title
+                }
+                
             }
         }
     }

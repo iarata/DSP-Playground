@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: An Object Struct
-struct DSPObject: Identifiable, Codable {
+struct DSPObject: Identifiable, Codable, Equatable {
     var id = UUID()
     var type: ObjectType
     var color: ObjectColor

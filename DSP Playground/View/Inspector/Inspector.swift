@@ -20,31 +20,38 @@ struct Inspector: View {
             HStack {
                 Text("Inspector").opacity(0.7)
                 Spacer()
-                Button {
-                    withAnimation {
-                        self.displayInspect.toggle()
-                    }
-                } label: {
-                    Image(systemName: "sidebar.trailing")
-                }.buttonStyle(PlainButtonStyle())
+                
 
             }.padding([.horizontal, .top], 7)
             Divider()
             
-            if selected.type == .audioFile {
-                AudioInspect(dspObject: $selected, AVMan: avmanager)
-            } else if selected.type == .filter && ObjectManager().audioNodeContainsFile() {
-                FilterInspect(dspObject: $selected, AVMan: avmanager)
+            if displayInspect {
+                if selected.type == .audioFile {
+                    AudioInspect(dspObject: $selected, AVMan: avmanager)
+                } else if selected.type == .filter && ObjectManager().audioNodeContainsFile() {
+                    FilterInspect(dspObject: $selected, AVMan: avmanager)
+                }
             }
             
             Spacer()
         }
         .background(VisualEffectView(material: NSVisualEffectView.Material.sidebar, blendingMode: NSVisualEffectView.BlendingMode.withinWindow))
 
-        .frame(width: 250)
+        .frame(maxWidth: 250)
         
-        
+        .toolbar {
+            ToolbarItemGroup(placement: .cancellationAction) {
+                Spacer()
+                
+                Button {
+                    print("Help")
+                } label: {
+                    Label("Help", systemImage: "questionmark.circle")
+                }
+                .help(Text("Help"))
+            }
+            
+        }
     }
     
 }
-

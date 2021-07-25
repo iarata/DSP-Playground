@@ -1,10 +1,11 @@
 import AudioKit
-import AudioKitUI
-import AVFoundation
 import SoundpipeAudioKit
+import AudioKitUI
+
+import AVFoundation
 import SwiftUI
 
-struct HighPassFilterData {
+struct LowPassFilterData {
     var cutoffFrequency: AUValue = 1_000
     var resonance: AUValue = 0
     var rampDuration: AUValue = 0.02
@@ -12,28 +13,27 @@ struct HighPassFilterData {
     var volume: AUValue = 0.5
 }
 
-class HighPassFilterConductor: ObservableObject, ProcessesPlayerInput {
+class LowPassFilterConductor: ObservableObject, ProcessesPlayerInput {
     let engine = AudioEngine()
     let player = AudioPlayer()
-    let filter: HighPassFilter
+    let filter: LowPassFilter
     let dryWetMixer: DryWetMixer
     let buffer: AVAudioPCMBuffer
     
     var audioFileURL: String
-    
+
     init(audioFile: String) {
         audioFileURL = audioFile
         buffer = Cookbook().sourceBuffer(url: audioFileURL)
         player.buffer = buffer
-        player.file = try! AVAudioFile(forReading: URL(string: audioFileURL)!)
         player.isLooping = true
-        
-        filter = HighPassFilter(player)
+
+        filter = LowPassFilter(player)
         dryWetMixer = DryWetMixer(player, filter)
         engine.output = dryWetMixer
     }
-    
-    @Published var data = HighPassFilterData() {
+
+    @Published var data = LowPassFilterData() {
         didSet {
             filter.cutoffFrequency = data.cutoffFrequency
             filter.resonance = data.resonance
@@ -41,19 +41,19 @@ class HighPassFilterConductor: ObservableObject, ProcessesPlayerInput {
             player.volume = data.volume
         }
     }
-    
+
     func start() {
-        do { try engine.start() } catch let err { Log(err) }
+       do { try engine.start() } catch let err { Log(err) }
     }
-    
+
     func stop() {
         engine.stop()
     }
 }
 
-struct HighPassFilterView: View {
-    @StateObject var conductor: HighPassFilterConductor
-    
+struct LowPassFilterView: View {
+    @StateObject var conductor: LowPassFilterConductor
+
     var body: some View {
         ScrollView {
             PlayerControls(conductor: conductor)
@@ -73,8 +73,10 @@ struct HighPassFilterView: View {
                 ParameterSlider(text: "Volume", parameter: self.$conductor.data.volume, range: 0...2)
                 Text("Values above 1 will have gain applied.").font(.footnote)
             }
+            Button("Specturm") {
+                DryWetMixView(dry: conductor.player, wet: conductor.filter, mix: conductor.dryWetMixer).frame(width: 700, height: 500).openInWindow(title: "Specturm", sender: self)
+            }
         }
-        
         .padding()
         .onAppear {
             self.conductor.start()
@@ -117,4 +119,3 @@ struct HighPassFilterView: View {
         }
     }
 }
-

@@ -24,6 +24,8 @@
 		BB20190326AC67FB000F2753 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018FD26AC67FB000F2753 /* ColorManager.swift */; };
 		BB20190526AC9E21000F2753 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20190426AC9E21000F2753 /* VisualEffectBlur.swift */; };
 		BB20190726ACC415000F2753 /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20190626ACC415000F2753 /* FilterModel.swift */; };
+		BB20190926AD0A77000F2753 /* LowPassFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20190826AD0A77000F2753 /* LowPassFilter.swift */; };
+		BB20190B26AD0CB1000F2753 /* Reverb.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20190A26AD0CB1000F2753 /* Reverb.swift */; };
 		BB24F41226A3396300CF3AD7 /* DSPObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41126A3396300CF3AD7 /* DSPObject.swift */; };
 		BB24F41426A34B5700CF3AD7 /* DSPNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41326A34B5700CF3AD7 /* DSPNotification.swift */; };
 		BB24F41626A3692700CF3AD7 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41526A3692700CF3AD7 /* Extentions.swift */; };
@@ -88,6 +90,8 @@
 		BB2018FD26AC67FB000F2753 /* ColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		BB20190426AC9E21000F2753 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
 		BB20190626ACC415000F2753 /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
+		BB20190826AD0A77000F2753 /* LowPassFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LowPassFilter.swift; sourceTree = "<group>"; };
+		BB20190A26AD0CB1000F2753 /* Reverb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reverb.swift; sourceTree = "<group>"; };
 		BB24F41126A3396300CF3AD7 /* DSPObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSPObject.swift; sourceTree = "<group>"; };
 		BB24F41326A34B5700CF3AD7 /* DSPNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSPNotification.swift; sourceTree = "<group>"; };
 		BB24F41526A3692700CF3AD7 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
@@ -163,6 +167,8 @@
 				BB2018F726AC67FB000F2753 /* Reusable Components */,
 				BB2018ED26AC6357000F2753 /* FilterInspect.swift */,
 				BB2018EF26AC6517000F2753 /* HighPassFilter.swift */,
+				BB20190826AD0A77000F2753 /* LowPassFilter.swift */,
+				BB20190A26AD0CB1000F2753 /* Reverb.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -512,7 +518,9 @@
 				BB20190026AC67FB000F2753 /* PlayerControls.swift in Sources */,
 				BB24F41226A3396300CF3AD7 /* DSPObject.swift in Sources */,
 				BB2018E526AC301C000F2753 /* ViewController.swift in Sources */,
+				BB20190926AD0A77000F2753 /* LowPassFilter.swift in Sources */,
 				BB2726F626A307CA003BA560 /* ObjectItem.swift in Sources */,
+				BB20190B26AD0CB1000F2753 /* Reverb.swift in Sources */,
 				BB2018E626AC301C000F2753 /* Barcharts.swift in Sources */,
 				BB2726EB26A2D1BF003BA560 /* ObjectManager.swift in Sources */,
 				BB24F44326A5FFE200CF3AD7 /* VerticalBar.swift in Sources */,

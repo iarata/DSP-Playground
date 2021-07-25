@@ -10,13 +10,13 @@ import SwiftUI
 
 struct FilterModel: Identifiable, Codable {
     var id = UUID()
-    var filterObjectID: UUID
+    var boundedTo: UUID
     var path: String
     var type: FilterType
     var audioModelID: UUID
     
-    init(filterID: UUID, path: String, type: FilterType, audio: UUID) {
-        self.filterObjectID = filterID
+    init(boundedTo: UUID, path: String, type: FilterType, audio: UUID) {
+        self.boundedTo = boundedTo
         self.path = path
         self.type = type
         self.audioModelID = audio
@@ -41,7 +41,7 @@ class FilterModelManager: ObservableObject {
     // MARK: Add Filter Model
     func add(model: FilterModel) {
         var prevModels = getAll()
-        let filtered = prevModels.filter { $0.filterObjectID == model.filterObjectID }
+        let filtered = prevModels.filter { $0.boundedTo == model.boundedTo }
         if filtered.isEmpty {
             prevModels.append(model)
         }
@@ -66,11 +66,11 @@ class FilterModelManager: ObservableObject {
     }
     
     // MARK: Get an FilterModel
-    func get(id: UUID) -> FilterModel {
+    func get(boundedID: UUID) -> FilterModel {
         let data = getAll()
-        var result = FilterModel(filterID: UUID(), path: "", type: .highPass, audio: UUID())
+        var result = FilterModel(boundedTo: UUID(), path: "", type: .highPass, audio: UUID())
         for model in data {
-            if model.id == id {
+            if model.boundedTo == boundedID {
                 result = model
             }
         }
@@ -79,9 +79,9 @@ class FilterModelManager: ObservableObject {
     }
     func get(dspID: UUID) -> FilterModel {
         let data = getAll()
-        var result = FilterModel(filterID: UUID(), path: "", type: .highPass, audio: UUID())
+        var result = FilterModel(boundedTo: UUID(), path: "", type: .highPass, audio: UUID())
         for model in data {
-            if model.filterObjectID == dspID {
+            if model.boundedTo == dspID {
                 result = model
             }
         }
@@ -94,8 +94,8 @@ class FilterModelManager: ObservableObject {
         let prevData = getAll()
         var newData = [FilterModel]()
         for model in prevData {
-            if model.filterObjectID == of {
-                newData.append(FilterModel(filterID: model.filterObjectID, path: model.path, type: model.type, audio: to))
+            if model.boundedTo == of {
+                newData.append(FilterModel(boundedTo: model.boundedTo, path: model.path, type: model.type, audio: to))
             } else {
                 newData.append(model)
             }
@@ -108,8 +108,8 @@ class FilterModelManager: ObservableObject {
         let prevData = getAll()
         var newData = [FilterModel]()
         for model in prevData {
-            if model.filterObjectID == oldID {
-                newData.append(FilterModel(filterID: newID, path: model.path, type: model.type, audio: model.audioModelID))
+            if model.boundedTo == oldID {
+                newData.append(FilterModel(boundedTo: newID, path: model.path, type: model.type, audio: model.audioModelID))
             } else {
                 newData.append(model)
             }
