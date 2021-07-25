@@ -53,11 +53,9 @@ class AVManager: ObservableObject {
     // Start playing
     func start() {
         fft = FFTTap(mixer) { fftData in
-            DispatchQueue.main.async {
-                self.updateAmplitudes(fftData)
-                
-                DSPNotification().updatePath(object: self)
-            }
+            self.updateAmplitudes(fftData)
+            
+            DSPNotification().updatePath(object: self)
         }
         
         do {
@@ -122,20 +120,21 @@ class AVManager: ObservableObject {
             let scaledAmplitude = (amplitude + 250) / 229.80
             
             // add the amplitude to our array (further scaling array to look good in visualizer)
-            DispatchQueue.main.async {
-                if(i/2 < self.amplitudes.count){
-                    var mappedAmplitude = self.map(n: scaledAmplitude, start1: 0.3, stop1: 0.9, start2: 0.0, stop2: 1.0)
-                    
-                    // restrict the range to 0.0 - 1.0
-                    if (mappedAmplitude < 0) {
-                        mappedAmplitude = 0
-                    }
-                    if (mappedAmplitude > 1.0) {
-                        mappedAmplitude = 1.0
-                    }
-                    
-                    self.amplitudes[i/2] = mappedAmplitude
+//            DispatchQueue.main.async {
+//
+//            }
+            if(i/2 < self.amplitudes.count){
+                var mappedAmplitude = self.map(n: scaledAmplitude, start1: 0.3, stop1: 0.9, start2: 0.0, stop2: 1.0)
+                
+                // restrict the range to 0.0 - 1.0
+                if (mappedAmplitude < 0) {
+                    mappedAmplitude = 0
                 }
+                if (mappedAmplitude > 1.0) {
+                    mappedAmplitude = 1.0
+                }
+                
+                self.amplitudes[i/2] = mappedAmplitude
             }
         }
     }

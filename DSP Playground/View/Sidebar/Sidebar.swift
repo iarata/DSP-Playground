@@ -14,7 +14,7 @@ struct Sidebar: View {
     @State var selected: UUID?
     
     var body: some View {
-        List(selection: $selected) {
+        List() {
             Section(header: Text("Workspace")) {
                 ForEach(objects) { obj in
                     SidebarItem(item: obj).tag(obj.id)

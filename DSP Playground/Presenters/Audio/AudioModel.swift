@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct AudioModel: Identifiable, Codable {
+struct AudioModel: Identifiable, Codable, Hashable {
     var id = UUID()
     var objectID: UUID
     var path: String

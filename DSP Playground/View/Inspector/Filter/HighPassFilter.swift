@@ -9,6 +9,7 @@ struct HighPassFilterData {
     var resonance: AUValue = 0
     var rampDuration: AUValue = 0.02
     var balance: AUValue = 0.5
+    var volume: AUValue = 0.5
 }
 
 class HighPassFilterConductor: ObservableObject, ProcessesPlayerInput {
@@ -24,8 +25,9 @@ class HighPassFilterConductor: ObservableObject, ProcessesPlayerInput {
         audioFileURL = audioFile
         buffer = Cookbook().sourceBuffer(url: audioFileURL)
         player.buffer = buffer
+        player.file = try! AVAudioFile(forReading: URL(string: audioFileURL)!)
         player.isLooping = true
-
+        
         filter = HighPassFilter(player)
         dryWetMixer = DryWetMixer(player, filter)
         engine.output = dryWetMixer
@@ -36,6 +38,7 @@ class HighPassFilterConductor: ObservableObject, ProcessesPlayerInput {
             filter.cutoffFrequency = data.cutoffFrequency
             filter.resonance = data.resonance
             dryWetMixer.balance = data.balance
+            player.volume = data.volume
         }
     }
 
@@ -66,8 +69,15 @@ struct HighPassFilterView: View {
                             parameter: self.$conductor.data.balance,
                             range: 0...1,
                             units: "%")
-            DryWetMixView(dry: conductor.player, wet: conductor.filter, mix: conductor.dryWetMixer)
+            VStack(alignment: .leading, spacing: 0) {
+                ParameterSlider(text: "Volume", parameter: self.$conductor.data.volume, range: 0...2)
+                Text("Values above 1 will have gain applied.").font(.footnote)
+            }
+            Button("Specturm") {
+                DryWetMixView(dry: conductor.player, wet: conductor.filter, mix: conductor.dryWetMixer).frame(width: 700, height: 400).openInWindow(title: "Specturm", sender: self)
+            }
         }
+        
         .padding()
         .onAppear {
             self.conductor.start()

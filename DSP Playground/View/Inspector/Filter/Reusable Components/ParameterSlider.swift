@@ -9,7 +9,7 @@ struct ParameterSlider: View {
     var units: String = ""
 
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             HStack {
                 Text(self.text)
                 Spacer()
@@ -30,29 +30,29 @@ struct ParameterSlider: View {
     }
 }
 
-struct ParameterSlider_Previews: PreviewProvider {
-    @State static var param1: AUValue = 0.5
-    static var previews: some View {
-        Group {
-            ParameterSlider(text: "Text",
-                            parameter: $param1,
-                            range: 0...1,
-                            units: "Hz")
-                .previewLayout(PreviewLayout.fixed(width: 400, height: 200))
-                .padding()
-//                .background(Color(NSColor.))
-                .environment(\.colorScheme, .dark)
-                .previewDisplayName("Dark Mode")
-
-            ParameterSlider(text: "Text",
-                            parameter: $param1,
-                            range: 0...1,
-                            format: "%0.5f")
-                .previewLayout(PreviewLayout.fixed(width: 400, height: 200))
-                .padding()
-//                .background(Color(.systemBackground))
-                .environment(\.colorScheme, .light)
-                .previewDisplayName("Light Mode")
-        }
-    }
-}
+//struct ParameterSlider_Previews: PreviewProvider {
+//    @State static var param1: AUValue = 0.5
+//    static var previews: some View {
+//        Group {
+//            ParameterSlider(text: "Text",
+//                            parameter: $param1,
+//                            range: 0...1,
+//                            units: "Hz")
+//                .previewLayout(PreviewLayout.fixed(width: 400, height: 200))
+//                .padding()
+////                .background(Color(NSColor.))
+//                .environment(\.colorScheme, .dark)
+//                .previewDisplayName("Dark Mode")
+//
+//            ParameterSlider(text: "Text",
+//                            parameter: $param1,
+//                            range: 0...1,
+//                            format: "%0.5f")
+//                .previewLayout(PreviewLayout.fixed(width: 400, height: 200))
+//                .padding()
+////                .background(Color(.systemBackground))
+//                .environment(\.colorScheme, .light)
+//                .previewDisplayName("Light Mode")
+//        }
+//    }
+//}

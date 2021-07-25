@@ -23,7 +23,7 @@ struct Home: View {
     @State var pub = DSPNotification().publisher()
     
     @State var showInspector = false
-    @State var selectedElement = DSPObject(id: UUID(), type: .audioFile, title: "", currentPosition: CGPoint(x:0, y:0))
+    @State var selectedElement = DSPObject(id: UUID(), type: .audioFile, title: "", currentPosition: CGPoint(x:0, y:0), path: "")
     
     @State var mousePosition = CGPoint(x: 0, y: 0)
     @State var mouseClicked = false
@@ -55,8 +55,13 @@ struct Home: View {
                         Spacer()
                         Divider()
                         HStack {
+                            Circle().frame(width: 8, height: 8).foregroundColor(Color.green)
                             Text("Ready")
-                        }.padding([.leading, .bottom], 6)
+                            Spacer()
+                            if selectedElement.title != "" && showInspector {
+                                Text("\(selectedElement.id)").font(.footnote)
+                            }
+                        }.padding([.horizontal, .bottom], 6)
                     }
                     if objects.isEmpty {
                         VStack {
@@ -76,10 +81,10 @@ struct Home: View {
                 }
                 .onTapGesture {
                     withAnimation {
-                        mousePosition = didPressBarItem()
-                        selectedElement = DSPObject(id: UUID(), type: .audioFile, title: "", currentPosition: CGPoint(x:0, y:0))
+//                        mousePosition = didPressBarItem()
+                        selectedElement = DSPObject(id: UUID(), type: .audioFile, title: "", currentPosition: CGPoint(x:0, y:0), path: "")
                         showInspector = false
-                        mouseClicked.toggle()
+//                        mouseClicked.toggle()
                     }
                 }
                 if showInspector {
@@ -100,7 +105,8 @@ struct Home: View {
                 }, label: {
                     Image(systemName: "plus")
                 })
-                .help(Text("Add Object"))
+                .help(Text("Add Node"))
+                .keyboardShortcut("e", modifiers: .command)
                 
                 Button(action: {
                     withAnimation {
@@ -110,6 +116,7 @@ struct Home: View {
                     Image(systemName: "trash").foregroundColor(.red).opacity(objects.isEmpty ? 0.4 : 1)
                 }).disabled(objects.isEmpty)
                 .help(Text("Delete All"))
+                .keyboardShortcut("d", modifiers: .command)
                 
                 Button {
                     print("Help")
@@ -128,6 +135,7 @@ struct Home: View {
         .alert(isPresented: $showDeleteAlert) {
             Alert(title: Text("Confirmation"), message: Text("Are you sure that you want to delete all the objects?"), primaryButton: .default(Text("Delete"), action: {
                 objectMTG.deleteAll()
+                self.showInspector = false
             }), secondaryButton: .cancel())
         }
         .onAppear {

@@ -25,6 +25,8 @@ struct AudioInspect: View {
     @State var inspectorUpdates = DSPNotification().inspectPublish()
     @State var dspObjectUpdates = DSPNotification().publisher()
     @State var amsc = [0.0, 0.0, 0.0]
+    
+    @State var browseButtonHover = false
         
     var body: some View {
         // MARK: - Audio Details
@@ -33,11 +35,45 @@ struct AudioInspect: View {
                 Text("File Details").bold().font(.footnote).foregroundColor(Color.secondary)
                 Spacer()
             }
-            Cell(leading: "Title", trailing: dspObject.title ?? "None")
+            Cell(leading: "Title") { Text(dspObject.title ?? "None").foregroundColor(.secondary) }
+
             if selectedAudioPath != "" {
-                Cell(leading: "File Type", trailing: URL(string: inspectModel.path)?.pathExtension ?? "Unavailable")
-                Cell(leading: "Duration", trailing: timeString(time: TimeInterval(inspectModel.duration)))
-                Cell(leading: "Path", trailing: inspectModel.path)
+                Cell(leading: "File Type") { Text(URL(string: inspectModel.path)?.pathExtension ?? "Unavailable").foregroundColor(.secondary) }
+                Cell(leading: "Duration") { Text(timeString(time: TimeInterval(inspectModel.duration))).foregroundColor(.secondary) }
+                Cell(leading: "Path") { Text(inspectModel.path).foregroundColor(.secondary) }
+            }
+            Cell(leading: "Select File") {
+                // MARK: - Load Button
+                Button {
+                    withAnimation {
+                        // open file selecter
+                        selectedAudioPath = AVMan.selectFile()
+                        
+                        // update object name
+                        objectMTG.updateName(of: dspObject.id, to: NSURL(string: selectedAudioPath)?.deletingPathExtension?.lastPathComponent ?? "None", position: dspObject.currentPosition)
+                        
+                        objectMTG.updatePath(of: dspObject.id, to: selectedAudioPath)
+                        
+                        // make audio model
+                        inspectModel = AudioModel(objectID: dspObject.id, path: selectedAudioPath, duration: AVMan.player.duration)
+                        
+                        // add audio model to model manager
+                        audioModelMTG.add(model: inspectModel)
+                        
+                        
+                        // send update notification
+                        DSPNotification().update(object: self)
+                    }
+                } label: {
+                    Text("Browse").padding(.vertical, 4).padding(.horizontal, 10).overlay(browseButtonHover ? RoundedRectangle(cornerRadius: 6, style: .continuous).fill(Color.secondary.opacity(0.1)) : nil)
+                }.buttonStyle(PlainButtonStyle())
+                .help(Text("Load File"))
+                .buttonStyle(PlainButtonStyle())
+                .onHover { hover in
+                    withAnimation {
+                        self.browseButtonHover = hover
+                    }
+                }
             }
             
             
@@ -55,29 +91,7 @@ struct AudioInspect: View {
             
             HStack(spacing: 25) {
                 
-                // MARK: - Load Button
-                Button {
-                    withAnimation {
-                        // open file selecter
-                        selectedAudioPath = AVMan.selectFile()
-                        
-                        // update object name
-                        objectMTG.updateName(of: dspObject.id, to: NSURL(string: selectedAudioPath)?.deletingPathExtension?.lastPathComponent ?? "None", position: dspObject.currentPosition)
-                        
-                        // make audio model
-                        inspectModel = AudioModel(objectID: dspObject.id, path: selectedAudioPath, duration: AVMan.player.duration)
-                        
-                        // add audio model to model manager
-                        audioModelMTG.add(model: inspectModel)
-                        
-                        
-                        // send update notification
-                        DSPNotification().update(object: self)
-                    }
-                } label: {
-                    Image(systemName: "doc.text.fill").font(.system(size: 18))
-                }.buttonStyle(PlainButtonStyle())
-                .help(Text("Load File"))
+                
                 
                 // MARK: - Play Button
                 Button {
@@ -117,13 +131,6 @@ struct AudioInspect: View {
                 
             }
             Spacer()
-            
-            
-            // Object UUID
-            HStack {
-                Text(dspObject.id.uuidString).font(.footnote)
-                Spacer()
-            }.padding(.bottom,3)
             
         }
         .padding(6)

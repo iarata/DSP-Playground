@@ -14,14 +14,22 @@ struct DSPObject: Identifiable, Codable {
     var color: ObjectColor
     var title: String?
     var currentPosition: CGPoint
+    var filePath: String?
     
     
-    init(type: ObjectType, title: String?, currentPosition: CGPoint) {
+    init(type: ObjectType, title: String?, currentPosition: CGPoint, path: String?) {
         self.type = type
         if let title = title {
             self.title = title
         } else {
-            self.title = "\(type)"
+            switch type {
+            case .audioFile:
+                self.title = "Audio File Node"
+            case .filter:
+                self.title = "Filter Node"
+            case .outputDevice:
+                self.title = "Output Node"
+            }
         }
         self.currentPosition = currentPosition
         
@@ -32,17 +40,27 @@ struct DSPObject: Identifiable, Codable {
             self.color = .filter
         case .outputDevice:
             self.color = .outputDevice
+        }
+        if let path = path {
+            self.filePath = path
         }
     }
     
-    init(id: UUID, type: ObjectType, title: String?, currentPosition: CGPoint) {
+    init(id: UUID, type: ObjectType, title: String?, currentPosition: CGPoint, path: String?) {
         self.id = id
         self.type = type
-        self.title = title
+
         if let title = title {
             self.title = title
         } else {
-            self.title = "\(type)"
+            switch type {
+            case .audioFile:
+                self.title = "Audio File Node"
+            case .filter:
+                self.title = "Filter Node"
+            case .outputDevice:
+                self.title = "Output Node"
+            }
         }
         self.currentPosition = currentPosition
         
@@ -53,6 +71,10 @@ struct DSPObject: Identifiable, Codable {
             self.color = .filter
         case .outputDevice:
             self.color = .outputDevice
+        }
+        
+        if let path = path {
+            self.filePath = path
         }
     }
 

@@ -8,6 +8,13 @@
 import Foundation
 import SwiftUI
 
+
+// MARK: - Selected Object
+class SelectedObject: ObservableObject {
+    @Published var object: DSPObject?
+}
+
+// MARK: - Object Manager
 class ObjectManager: ObservableObject {
     
     let keyForUserDefaults = "DSPObjects"
@@ -33,6 +40,7 @@ class ObjectManager: ObservableObject {
         DSPNotification().update(object: self)
     }
     
+    // MARK: Save 1 Object
     func saveObject(_ DSPObjects: [DSPObject]) {
         let data = DSPObjects.map { try? JSONEncoder().encode($0) }
         UserDefaults.standard.set(data, forKey: keyForUserDefaults)
@@ -47,7 +55,46 @@ class ObjectManager: ObservableObject {
         var newOBJ: DSPObject
         for item in prevData {
             if item.id == objID {
-                newOBJ = DSPObject(id: objID, type: item.type, title: objName, currentPosition: position)
+                newOBJ = DSPObject(id: objID, type: item.type, title: objName, currentPosition: position, path: item.filePath)
+                newData.append(newOBJ)
+                AudioModelManager().updateObjectID(newID: newOBJ.id, oldID: objID)
+            } else {
+                newData.append(item)
+            }
+        }
+        
+        saveObject(newData)
+    }
+    
+    // MARK: Does AudioFile exist?
+    func isAudioFileExist() -> Bool {
+        let data = getObjects()
+        let result = data.filter { $0.type == .audioFile }
+        if result.isNotEmpty {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func audioNodeContainsFile() -> Bool {
+        let data = getObjects()
+        let result = data.filter { $0.filePath != "" || $0.filePath != nil }
+        if result.isNotEmpty {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    // MARK: Update Object Name
+    func updatePath(of objID: UUID, to newPath: String) {
+        let prevData = getObjects()
+        var newData = [DSPObject]()
+        var newOBJ: DSPObject
+        for item in prevData {
+            if item.id == objID {
+                newOBJ = DSPObject(id: objID, type: item.type, title: item.title, currentPosition: item.currentPosition, path: newPath)
                 newData.append(newOBJ)
                 AudioModelManager().updateObjectID(newID: newOBJ.id, oldID: objID)
             } else {
@@ -108,13 +155,14 @@ class ObjectManager: ObservableObject {
         }
     }
     
+    // MARK: Update Position
     func updatePosition(dspObject: DSPObject, to newPosition: CGPoint) {
         let prevData = getObjects()
         var newData = [DSPObject]()
         
         for item in prevData {
             if item.id == dspObject.id {
-                newData.append(DSPObject(id: dspObject.id, type: dspObject.type, title: item.title, currentPosition: newPosition))
+                newData.append(DSPObject(id: dspObject.id, type: dspObject.type, title: item.title, currentPosition: newPosition, path: dspObject.filePath))
             } else {
                 newData.append(item)
             }

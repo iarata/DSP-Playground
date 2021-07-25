@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Inspector: View {
     
-    @ObservedObject var avmanager = AVManager()
+    @StateObject var avmanager = AVManager()
     
     @Binding var objects: [DSPObject]
     @Binding var selected: DSPObject
@@ -33,12 +33,13 @@ struct Inspector: View {
             
             if selected.type == .audioFile {
                 AudioInspect(dspObject: $selected, AVMan: avmanager)
-            } else if selected.type == .filter {
+            } else if selected.type == .filter && ObjectManager().audioNodeContainsFile() {
                 FilterInspect(dspObject: $selected, AVMan: avmanager)
             }
             
             Spacer()
         }
+        .background(VisualEffectView(material: NSVisualEffectView.Material.sidebar, blendingMode: NSVisualEffectView.BlendingMode.withinWindow))
 
         .frame(width: 250)
         
@@ -46,29 +47,4 @@ struct Inspector: View {
     }
     
 }
-extension View {
-    
-    @discardableResult
-    func openInWindow(title: String, sender: Any?) -> NSWindow {
-        let controller = NSHostingController(rootView: self)
-        let win = NSWindow(contentViewController: controller)
-        win.contentViewController = controller
-        win.title = title
-        win.makeKeyAndOrderFront(sender)
-        return win
-    }
-}
 
-
-struct Cell: View {
-    var leading: String
-    var trailing: String
-    
-    var body: some View {
-        HStack {
-            Text(leading)
-            Spacer()
-            Text(trailing).foregroundColor(.secondary)
-        }.padding(7).background(RoundedRectangle(cornerRadius: 6, style: .continuous).fill(Color.white))
-    }
-}

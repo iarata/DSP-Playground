@@ -14,6 +14,8 @@ struct FilterOV: View {
     @State var dspObject: DSPObject
     @State var position: CGPoint
     
+    @State var pub = DSPNotification().publisher()
+    
     @State var connectionMG: ConnectionManager
     
     var body: some View {
@@ -57,6 +59,11 @@ struct FilterOV: View {
                 }
             }
             
+        }
+        .onReceive(pub) { (output) in
+            withAnimation {
+                dspObject = objectManager.getObject(id: dspObject.id)!
+            }
         }
     }
 }

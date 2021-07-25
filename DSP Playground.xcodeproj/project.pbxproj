@@ -22,6 +22,8 @@
 		BB20190026AC67FB000F2753 /* PlayerControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018FA26AC67FB000F2753 /* PlayerControls.swift */; };
 		BB20190226AC67FB000F2753 /* PlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018FC26AC67FB000F2753 /* PlotView.swift */; };
 		BB20190326AC67FB000F2753 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018FD26AC67FB000F2753 /* ColorManager.swift */; };
+		BB20190526AC9E21000F2753 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20190426AC9E21000F2753 /* VisualEffectBlur.swift */; };
+		BB20190726ACC415000F2753 /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20190626ACC415000F2753 /* FilterModel.swift */; };
 		BB24F41226A3396300CF3AD7 /* DSPObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41126A3396300CF3AD7 /* DSPObject.swift */; };
 		BB24F41426A34B5700CF3AD7 /* DSPNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41326A34B5700CF3AD7 /* DSPNotification.swift */; };
 		BB24F41626A3692700CF3AD7 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41526A3692700CF3AD7 /* Extentions.swift */; };
@@ -84,6 +86,8 @@
 		BB2018FA26AC67FB000F2753 /* PlayerControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerControls.swift; sourceTree = "<group>"; };
 		BB2018FC26AC67FB000F2753 /* PlotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotView.swift; sourceTree = "<group>"; };
 		BB2018FD26AC67FB000F2753 /* ColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		BB20190426AC9E21000F2753 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
+		BB20190626ACC415000F2753 /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 		BB24F41126A3396300CF3AD7 /* DSPObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSPObject.swift; sourceTree = "<group>"; };
 		BB24F41326A34B5700CF3AD7 /* DSPNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSPNotification.swift; sourceTree = "<group>"; };
 		BB24F41526A3692700CF3AD7 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
@@ -191,6 +195,7 @@
 			children = (
 				BB24F42126A40E1200CF3AD7 /* AudioManager.swift */,
 				BB24F43426A55CE200CF3AD7 /* AudioModel.swift */,
+				BB20190626ACC415000F2753 /* FilterModel.swift */,
 				BB16D81526A9E597004370C1 /* SampleConductor.swift */,
 			);
 			path = Audio;
@@ -314,6 +319,7 @@
 				BB2726F726A3145F003BA560 /* Sidebar */,
 				BB2726E526A2D0D5003BA560 /* Objects */,
 				BB2726E126A1E18F003BA560 /* Home.swift */,
+				BB20190426AC9E21000F2753 /* VisualEffectBlur.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -511,10 +517,12 @@
 				BB2726EB26A2D1BF003BA560 /* ObjectManager.swift in Sources */,
 				BB24F44326A5FFE200CF3AD7 /* VerticalBar.swift in Sources */,
 				BB24F41A26A36BD700CF3AD7 /* OutputDeviceOV.swift in Sources */,
+				BB20190526AC9E21000F2753 /* VisualEffectBlur.swift in Sources */,
 				BB2018FF26AC67FB000F2753 /* Cookbook.swift in Sources */,
 				BB24F42D26A46E6100CF3AD7 /* AudioInspect.swift in Sources */,
 				BB2726B626A1C371003BA560 /* ContentView.swift in Sources */,
 				BB16D81626A9E597004370C1 /* SampleConductor.swift in Sources */,
+				BB20190726ACC415000F2753 /* FilterModel.swift in Sources */,
 				BB20189126AB0798000F2753 /* MetalTest.swift in Sources */,
 				BB24F41826A36A8E00CF3AD7 /* FilterOV.swift in Sources */,
 				BB24F42A26A46C2B00CF3AD7 /* TimeDomain.swift in Sources */,

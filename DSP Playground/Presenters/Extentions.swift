@@ -24,7 +24,7 @@ extension InsettableShape {
     }
 }
 
-extension AudioInspect {
+extension View {
     func timeString(time: TimeInterval) -> String {
         let hour = Int(time) / 3600
         let minute = Int(time) / 60 % 60
@@ -32,5 +32,43 @@ extension AudioInspect {
         
         // return formated string
         return String(format: "%02i:%02i:%02i", hour, minute, second)
+    }
+}
+
+extension View {
+    
+    @discardableResult
+    func openInWindow(title: String, sender: Any?) -> NSWindow {
+        let controller = NSHostingController(rootView: self)
+        let win = NSWindow(contentViewController: controller)
+        win.contentViewController = controller
+        win.title = title
+        win.makeKeyAndOrderFront(sender)
+        return win
+    }
+}
+
+struct Cell<Content: View>: View {
+    let leading: String
+    let content: Content
+    
+    init(leading: String, @ViewBuilder content: @escaping () -> Content) {
+        self.content = content()
+        self.leading = leading
+    }
+    
+    var body: some View {
+        HStack {
+            Text(leading)
+            Spacer()
+            content
+        }.padding(7).background(RoundedRectangle(cornerRadius: 6, style: .continuous).fill(Color.white))
+    }
+}
+
+extension NSTextField {
+    open override var focusRingType: NSFocusRingType {
+        get { .none }
+        set { }
     }
 }
