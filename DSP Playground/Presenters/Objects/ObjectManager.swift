@@ -103,6 +103,7 @@ class ObjectManager: ObservableObject {
         }
         
         saveObject(newData)
+        DSPNotification().update(object: self)
     }
     
     // MARK: Delete One

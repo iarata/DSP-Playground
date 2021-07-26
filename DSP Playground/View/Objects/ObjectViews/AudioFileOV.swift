@@ -70,6 +70,9 @@ struct AudioFileOV: View {
                     dspObject = updateOBJ
                 }
             }
+            .onAppear {
+                
+            }
         
         
         

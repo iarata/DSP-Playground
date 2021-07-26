@@ -40,6 +40,27 @@ class AudioModelManager: ObservableObject {
         DSPNotification().inspectUpdate(object: self)
     }
     
+    func add(models: [AudioModel]) {
+        let data = models.map { try? JSONEncoder().encode($0) }
+        UserDefaults.standard.set(data, forKey: keyForAudioModels)
+        self.audioModels = getAll()
+        DSPNotification().inspectUpdate(object: self)
+    }
+    
+    func updateD(modelID: UUID, duration: Double) {
+        let prevData = getAll()
+        var newData = [AudioModel]()
+        for model in prevData {
+            if model.id == modelID {
+                newData.append(AudioModel(objectID: model.objectID, path: model.path, duration: duration))
+            } else {
+                newData.append(model)
+            }
+        }
+        self.add(models: newData)
+        DSPNotification().inspectUpdate(object: self)
+    }
+    
     // MARK: Get All Audio Models List
     func getAll() -> [AudioModel] {
         guard let encodedData = UserDefaults.standard.array(forKey: keyForAudioModels) as? [Data] else { return [] }
@@ -47,16 +68,14 @@ class AudioModelManager: ObservableObject {
     }
     
     // MARK: Get an AudioModel
-    func get(id: UUID) -> AudioModel {
+    func get(id: UUID) -> AudioModel? {
         let data = getAll()
-        var result = AudioModel(objectID: UUID(), path: "", duration: 0.0)
-        for model in data {
-            if model.id == id {
-                result = model
-            }
+        let result = data.filter { $0.id == id }
+        if result.isNotEmpty {
+            return result.first
+        } else {
+            return nil
         }
-        
-        return result
     }
     func get(dspID: UUID) -> AudioModel {
         let data = getAll()
@@ -82,5 +101,6 @@ class AudioModelManager: ObservableObject {
             }
         }
         
+        self.add(models: newData)
     }
 }

@@ -9,7 +9,7 @@ struct HighPassFilterData {
     var resonance: AUValue = 0
     var rampDuration: AUValue = 0.02
     var balance: AUValue = 0.5
-    var volume: AUValue = 0.5
+    var volume: AUValue = 1
 }
 
 class HighPassFilterConductor: ObservableObject, ProcessesPlayerInput {
@@ -18,6 +18,8 @@ class HighPassFilterConductor: ObservableObject, ProcessesPlayerInput {
     let filter: HighPassFilter
     let dryWetMixer: DryWetMixer
     let buffer: AVAudioPCMBuffer
+    
+//    let booster: 
     
     var audioFileURL: String
     
@@ -39,6 +41,7 @@ class HighPassFilterConductor: ObservableObject, ProcessesPlayerInput {
             filter.resonance = data.resonance
             dryWetMixer.balance = data.balance
             player.volume = data.volume
+            
         }
     }
     

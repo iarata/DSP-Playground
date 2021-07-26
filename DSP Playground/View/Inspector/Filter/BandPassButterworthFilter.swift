@@ -1,25 +1,29 @@
 import AudioKit
-import SoundpipeAudioKit
 import AudioKitUI
-
 import AVFoundation
+import SoundpipeAudioKit
 import SwiftUI
 
-struct LowPassFilterData {
-    var cutoffFrequency: AUValue = 1_000
-    var resonance: AUValue = 0
+//: Band-pass filters allow audio above a specified frequency range and
+//: bandwidth to pass through to an output. The center frequency is the starting point
+//: from where the frequency limit is set. Adjusting the bandwidth sets how far out
+//: above and below the center frequency the frequency band should be.
+//: Anything above that band should pass through.
+struct BandPassButterworthFilterData {
+    var centerFrequency: AUValue = 2_000.0
+    var bandwidth: AUValue = 100.0
     var rampDuration: AUValue = 0.02
     var balance: AUValue = 0.5
     var volume: AUValue = 1
 }
 
-class LowPassFilterConductor: ObservableObject, ProcessesPlayerInput {
+class BandPassButterworthFilterConductor: ObservableObject, ProcessesPlayerInput {
     let engine = AudioEngine()
     let player = AudioPlayer()
-    let filter: LowPassFilter
+    let filter: BandPassButterworthFilter
     let dryWetMixer: DryWetMixer
     let buffer: AVAudioPCMBuffer
-    
+
     var audioFileURL: String
 
     init(audioFile: String) {
@@ -28,23 +32,23 @@ class LowPassFilterConductor: ObservableObject, ProcessesPlayerInput {
         player.buffer = buffer
         player.isLooping = true
         player.file = try! AVAudioFile(forReading: URL(string: audioFileURL)!)
-        
-        filter = LowPassFilter(player)
+
+        filter = BandPassButterworthFilter(player)
         dryWetMixer = DryWetMixer(player, filter)
         engine.output = dryWetMixer
     }
 
-    @Published var data = LowPassFilterData() {
+    @Published var data = BandPassButterworthFilterData() {
         didSet {
-            filter.cutoffFrequency = data.cutoffFrequency
-            filter.resonance = data.resonance
+            filter.$centerFrequency.ramp(to: data.centerFrequency, duration: data.rampDuration)
+            filter.$bandwidth.ramp(to: data.bandwidth, duration: data.rampDuration)
             dryWetMixer.balance = data.balance
             player.volume = data.volume
         }
     }
 
     func start() {
-       do { try engine.start() } catch let err { Log(err) }
+        do { try engine.start() } catch let err { Log(err) }
     }
 
     func stop() {
@@ -52,20 +56,20 @@ class LowPassFilterConductor: ObservableObject, ProcessesPlayerInput {
     }
 }
 
-struct LowPassFilterView: View {
-    @StateObject var conductor: LowPassFilterConductor
+struct BandPassButterworthFilterView: View {
+    @StateObject var conductor: BandPassButterworthFilterConductor
 
     var body: some View {
         ScrollView {
             PlayerControls(conductor: conductor)
-            ParameterSlider(text: "Cutoff Frequency",
-                            parameter: self.$conductor.data.cutoffFrequency,
-                            range: 12.0...3_000.0,
+            ParameterSlider(text: "Center Frequency",
+                            parameter: self.$conductor.data.centerFrequency,
+                            range: 12.0...20_000.0,
                             units: "Hertz")
-            ParameterSlider(text: "Resonance",
-                            parameter: self.$conductor.data.resonance,
-                            range: -20...40,
-                            units: "dB")
+            ParameterSlider(text: "Bandwidth",
+                            parameter: self.$conductor.data.bandwidth,
+                            range: 0.0...20_000.0,
+                            units: "Hertz")
             ParameterSlider(text: "Mix",
                             parameter: self.$conductor.data.balance,
                             range: 0...1,

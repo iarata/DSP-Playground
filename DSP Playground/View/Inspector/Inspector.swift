@@ -9,7 +9,6 @@ import SwiftUI
 
 struct Inspector: View {
     
-    @StateObject var avmanager = AVManager()
     
     @Binding var objects: [DSPObject]
     @Binding var selected: DSPObject
@@ -27,9 +26,9 @@ struct Inspector: View {
             
             if displayInspect {
                 if selected.type == .audioFile {
-                    AudioInspect(dspObject: $selected, AVMan: avmanager)
+                    AudioInspect(dspObject: $selected)
                 } else if selected.type == .filter && ObjectManager().audioNodeContainsFile() {
-                    FilterInspect(dspObject: $selected, AVMan: avmanager)
+                    FilterInspect(dspObject: $selected)
                 }
             }
             

@@ -21,6 +21,7 @@ class ReverbConductor: ObservableObject, ProcessesPlayerInput {
         buffer = Cookbook().sourceBuffer(url: audioFileURL)
         player.buffer = buffer
         player.isLooping = true
+        player.file = try! AVAudioFile(forReading: URL(string: audioFileURL)!)
 
         reverb = Reverb(player)
         reverb.dryWetMix = 50

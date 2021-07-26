@@ -26,6 +26,9 @@
 		BB20190726ACC415000F2753 /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20190626ACC415000F2753 /* FilterModel.swift */; };
 		BB20190926AD0A77000F2753 /* LowPassFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20190826AD0A77000F2753 /* LowPassFilter.swift */; };
 		BB20190B26AD0CB1000F2753 /* Reverb.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20190A26AD0CB1000F2753 /* Reverb.swift */; };
+		BB20190F26AE268E000F2753 /* TanhDistortion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20190E26AE268E000F2753 /* TanhDistortion.swift */; };
+		BB20191126AE26C4000F2753 /* BandPassButterworthFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20191026AE26C4000F2753 /* BandPassButterworthFilter.swift */; };
+		BB20191326AE2A91000F2753 /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20191226AE2A91000F2753 /* Conductor.swift */; };
 		BB24F41226A3396300CF3AD7 /* DSPObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41126A3396300CF3AD7 /* DSPObject.swift */; };
 		BB24F41426A34B5700CF3AD7 /* DSPNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41326A34B5700CF3AD7 /* DSPNotification.swift */; };
 		BB24F41626A3692700CF3AD7 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F41526A3692700CF3AD7 /* Extentions.swift */; };
@@ -39,7 +42,6 @@
 		BB24F42D26A46E6100CF3AD7 /* AudioInspect.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F42C26A46E6100CF3AD7 /* AudioInspect.swift */; };
 		BB24F43526A55CE200CF3AD7 /* AudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F43426A55CE200CF3AD7 /* AudioModel.swift */; };
 		BB24F43A26A5B98100CF3AD7 /* PythonPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F43926A5B98100CF3AD7 /* PythonPlot.swift */; };
-		BB24F43D26A5BB8800CF3AD7 /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = BB24F43C26A5BB8800CF3AD7 /* PythonKit */; };
 		BB24F44026A5BC0E00CF3AD7 /* PythonKitTest.py in Resources */ = {isa = PBXBuildFile; fileRef = BB24F43F26A5BC0E00CF3AD7 /* PythonKitTest.py */; };
 		BB24F44326A5FFE200CF3AD7 /* VerticalBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F44226A5FFE200CF3AD7 /* VerticalBar.swift */; };
 		BB24F44526A600C700CF3AD7 /* AmplitudeVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24F44426A600C700CF3AD7 /* AmplitudeVisualizer.swift */; };
@@ -92,6 +94,9 @@
 		BB20190626ACC415000F2753 /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 		BB20190826AD0A77000F2753 /* LowPassFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LowPassFilter.swift; sourceTree = "<group>"; };
 		BB20190A26AD0CB1000F2753 /* Reverb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reverb.swift; sourceTree = "<group>"; };
+		BB20190E26AE268E000F2753 /* TanhDistortion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TanhDistortion.swift; sourceTree = "<group>"; };
+		BB20191026AE26C4000F2753 /* BandPassButterworthFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandPassButterworthFilter.swift; sourceTree = "<group>"; };
+		BB20191226AE2A91000F2753 /* Conductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
 		BB24F41126A3396300CF3AD7 /* DSPObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSPObject.swift; sourceTree = "<group>"; };
 		BB24F41326A34B5700CF3AD7 /* DSPNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSPNotification.swift; sourceTree = "<group>"; };
 		BB24F41526A3692700CF3AD7 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
@@ -140,7 +145,6 @@
 				BB2018EC26AC5164000F2753 /* AudioKitUI in Frameworks */,
 				BB2018F626AC65EF000F2753 /* AudioKit in Frameworks */,
 				BB2018F326AC6558000F2753 /* SoundpipeAudioKit in Frameworks */,
-				BB24F43D26A5BB8800CF3AD7 /* PythonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +172,8 @@
 				BB2018ED26AC6357000F2753 /* FilterInspect.swift */,
 				BB2018EF26AC6517000F2753 /* HighPassFilter.swift */,
 				BB20190826AD0A77000F2753 /* LowPassFilter.swift */,
+				BB20191026AE26C4000F2753 /* BandPassButterworthFilter.swift */,
+				BB20190E26AE268E000F2753 /* TanhDistortion.swift */,
 				BB20190A26AD0CB1000F2753 /* Reverb.swift */,
 			);
 			path = Filter;
@@ -203,6 +209,7 @@
 				BB24F43426A55CE200CF3AD7 /* AudioModel.swift */,
 				BB20190626ACC415000F2753 /* FilterModel.swift */,
 				BB16D81526A9E597004370C1 /* SampleConductor.swift */,
+				BB20191226AE2A91000F2753 /* Conductor.swift */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -381,6 +388,7 @@
 				BB2726AC26A1C371003BA560 /* Sources */,
 				BB2726AD26A1C371003BA560 /* Frameworks */,
 				BB2726AE26A1C371003BA560 /* Resources */,
+				BB20191426AE4E61000F2753 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -388,7 +396,6 @@
 			);
 			name = "DSP Playground";
 			packageProductDependencies = (
-				BB24F43C26A5BB8800CF3AD7 /* PythonKit */,
 				BB20189326AB23AE000F2753 /* Charts */,
 				BB2018EB26AC5164000F2753 /* AudioKitUI */,
 				BB2018F226AC6558000F2753 /* SoundpipeAudioKit */,
@@ -466,7 +473,6 @@
 			);
 			mainGroup = BB2726A726A1C371003BA560;
 			packageReferences = (
-				BB24F43B26A5BB8800CF3AD7 /* XCRemoteSwiftPackageReference "PythonKit" */,
 				BB20189226AB23AE000F2753 /* XCRemoteSwiftPackageReference "swiftui-charts" */,
 				BB2018EA26AC5164000F2753 /* XCRemoteSwiftPackageReference "AudioKitUI" */,
 				BB2018F126AC6558000F2753 /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */,
@@ -510,6 +516,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BB20191426AE4E61000F2753 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BB2726AC26A1C371003BA560 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -527,10 +553,12 @@
 				BB24F41A26A36BD700CF3AD7 /* OutputDeviceOV.swift in Sources */,
 				BB20190526AC9E21000F2753 /* VisualEffectBlur.swift in Sources */,
 				BB2018FF26AC67FB000F2753 /* Cookbook.swift in Sources */,
+				BB20191126AE26C4000F2753 /* BandPassButterworthFilter.swift in Sources */,
 				BB24F42D26A46E6100CF3AD7 /* AudioInspect.swift in Sources */,
 				BB2726B626A1C371003BA560 /* ContentView.swift in Sources */,
 				BB16D81626A9E597004370C1 /* SampleConductor.swift in Sources */,
 				BB20190726ACC415000F2753 /* FilterModel.swift in Sources */,
+				BB20191326AE2A91000F2753 /* Conductor.swift in Sources */,
 				BB20189126AB0798000F2753 /* MetalTest.swift in Sources */,
 				BB24F41826A36A8E00CF3AD7 /* FilterOV.swift in Sources */,
 				BB24F42A26A46C2B00CF3AD7 /* TimeDomain.swift in Sources */,
@@ -545,6 +573,7 @@
 				BB2018FE26AC67FB000F2753 /* ParameterSlider.swift in Sources */,
 				BB2018F026AC6517000F2753 /* HighPassFilter.swift in Sources */,
 				BB24F42726A4390600CF3AD7 /* Inspector.swift in Sources */,
+				BB20190F26AE268E000F2753 /* TanhDistortion.swift in Sources */,
 				BB2726F026A2E776003BA560 /* ExtraTEST.swift in Sources */,
 				BB24F43A26A5B98100CF3AD7 /* PythonPlot.swift in Sources */,
 				BB20190326AC67FB000F2753 /* ColorManager.swift in Sources */,
@@ -713,6 +742,7 @@
 				CODE_SIGN_ENTITLEMENTS = "DSP Playground/DSP_Playground.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DSP Playground/Preview Content\"";
 				DEVELOPMENT_TEAM = 9RU52AC58E;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -723,6 +753,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = studio.arata.DSPPlayground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -737,6 +768,7 @@
 				CODE_SIGN_ENTITLEMENTS = "DSP Playground/DSP_Playground.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DSP Playground/Preview Content\"";
 				DEVELOPMENT_TEAM = 9RU52AC58E;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -747,6 +779,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = studio.arata.DSPPlayground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -911,14 +944,6 @@
 				minimumVersion = 5.2.0;
 			};
 		};
-		BB24F43B26A5BB8800CF3AD7 /* XCRemoteSwiftPackageReference "PythonKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pvieito/PythonKit";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -941,11 +966,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BB2018F426AC65EF000F2753 /* XCRemoteSwiftPackageReference "AudioKit" */;
 			productName = AudioKit;
-		};
-		BB24F43C26A5BB8800CF3AD7 /* PythonKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BB24F43B26A5BB8800CF3AD7 /* XCRemoteSwiftPackageReference "PythonKit" */;
-			productName = PythonKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

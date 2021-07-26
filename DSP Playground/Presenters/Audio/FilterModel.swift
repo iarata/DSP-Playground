@@ -27,6 +27,8 @@ enum FilterType: String, Codable {
     case highPass = "HighPass"
     case lowPass = "LowPass"
     case reverb = "Reverb"
+    case BandPass = "BandPass"
+    case TanhDistortion = "TanhDistortion"
 }
 
 
@@ -115,5 +117,15 @@ class FilterModelManager: ObservableObject {
             }
         }
         
+    }
+    
+    func remove(id: UUID) {
+        let prevData = getAll()
+        var newData = [FilterModel]()
+        for model in prevData {
+            if model.id != id {
+                newData.append(model)
+            }
+        }
     }
 }

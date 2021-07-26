@@ -5,6 +5,7 @@ import SwiftUI
 
 protocol ProcessesPlayerInput {
     var player: AudioPlayer { get }
+    var engine: AudioEngine { get }
 }
 
 struct PlayerControls: View {
@@ -15,35 +16,57 @@ struct PlayerControls: View {
     @State var isPlaying = false
     @State var isPause = false
     
+    @State var currentTime: TimeInterval = 0
+    
     var body: some View {
         VStack {
+            
+            // MARK: - Audio Progress
+            VStack(spacing: 0) {
+                HStack {
+                    Spacer()
+                    Text(timeString(time: TimeInterval(currentTime))).foregroundColor(Color.secondary).padding(.horizontal, 1)
+                }
+                ProgressView(value: currentTime, total: self.conductor.player.duration)
+            }
             HStack(spacing: 10) {
                 
                 Button(action: {
-                    self.isPlaying ? self.conductor.player.stop() : self.conductor.player.play()
-                    self.isPlaying.toggle()
+                    self.conductor.player.play()
+                    self.isPlaying = true
                     
                 }, label: {
-                    Image(systemName: isPlaying ? "stop.fill" : "play.fill").font(.system(size: 18, weight: .semibold, design: .rounded))
-                        //                        .padding(5)
+                    Image(systemName: "play.fill").font(.system(size: 18, weight: .semibold, design: .rounded))
                         .frame(width: 40, height: 40)
                         .imageScale(.medium)
                         .foregroundColor(.white)
-                        .background(isPlaying ? Color.red : Color.green)
+                        .background(Color.green)
                         .clipShape(Circle())
                     
                 })
                 .buttonStyle(PlainButtonStyle())
                 
+                Button(action: {
+                    self.conductor.player.stop()
+                    self.isPlaying = false
+                                       
+                }, label: {
+                    Image(systemName: "stop.fill").font(.system(size: 18, weight: .semibold, design: .rounded))
+                        .frame(width: 40, height: 40)
+                        .imageScale(.medium)
+                        .background(Color.red)
+                        .foregroundColor(.white)
+                        .clipShape(Circle())
+                    
+                })
+                .buttonStyle(PlainButtonStyle())
                 
                 Button(action: {
-                    self.isPause ? self.conductor.player.play() : self.conductor.player.pause()
-                    self.isPause.toggle()
-                    
+                    self.conductor.player.pause()
+                    self.isPlaying = false
+                   
                 }, label: {
-                    Image(systemName: isPause ? "playpause.fill" : "pause.fill").font(.system(size: 18, weight: .semibold, design: .rounded))
-                        //                        .padding(5)
-                        
+                    Image(systemName: "pause.fill").font(.system(size: 18, weight: .semibold, design: .rounded))
                         .frame(width: 40, height: 40)
                         .imageScale(.medium)
                         .background(Color.blue)
@@ -56,6 +79,19 @@ struct PlayerControls: View {
             }
             
             .padding()
+            .onAppear {
+                Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (_) in
+                    if self.isPlaying {
+                        self.currentTime = self.conductor.player.getCurrentTime()
+
+                    } else {
+                        Timer().invalidate()
+                    }
+                }
+            }
+            .onDisappear {
+                Timer().invalidate()
+            }
         }
     }
     

@@ -1,25 +1,26 @@
 import AudioKit
-import SoundpipeAudioKit
 import AudioKitUI
-
 import AVFoundation
+import SoundpipeAudioKit
 import SwiftUI
 
-struct LowPassFilterData {
-    var cutoffFrequency: AUValue = 1_000
-    var resonance: AUValue = 0
+struct TanhDistortionData {
+    var pregain: AUValue = 2.0
+    var postgain: AUValue = 0.5
+    var positiveShapeParameter: AUValue = 0.0
+    var negativeShapeParameter: AUValue = 0.0
     var rampDuration: AUValue = 0.02
     var balance: AUValue = 0.5
     var volume: AUValue = 1
 }
 
-class LowPassFilterConductor: ObservableObject, ProcessesPlayerInput {
+class TanhDistortionConductor: ObservableObject, ProcessesPlayerInput {
     let engine = AudioEngine()
     let player = AudioPlayer()
-    let filter: LowPassFilter
+    let distortion: TanhDistortion
     let dryWetMixer: DryWetMixer
     let buffer: AVAudioPCMBuffer
-    
+
     var audioFileURL: String
 
     init(audioFile: String) {
@@ -29,22 +30,24 @@ class LowPassFilterConductor: ObservableObject, ProcessesPlayerInput {
         player.isLooping = true
         player.file = try! AVAudioFile(forReading: URL(string: audioFileURL)!)
         
-        filter = LowPassFilter(player)
-        dryWetMixer = DryWetMixer(player, filter)
+        distortion = TanhDistortion(player)
+        dryWetMixer = DryWetMixer(player, distortion)
         engine.output = dryWetMixer
     }
 
-    @Published var data = LowPassFilterData() {
+    @Published var data = TanhDistortionData() {
         didSet {
-            filter.cutoffFrequency = data.cutoffFrequency
-            filter.resonance = data.resonance
+            distortion.$pregain.ramp(to: data.pregain, duration: data.rampDuration)
+            distortion.$postgain.ramp(to: data.postgain, duration: data.rampDuration)
+            distortion.$positiveShapeParameter.ramp(to: data.positiveShapeParameter, duration: data.rampDuration)
+            distortion.$negativeShapeParameter.ramp(to: data.negativeShapeParameter, duration: data.rampDuration)
             dryWetMixer.balance = data.balance
             player.volume = data.volume
         }
     }
 
     func start() {
-       do { try engine.start() } catch let err { Log(err) }
+        do { try engine.start() } catch let err { Log(err) }
     }
 
     func stop() {
@@ -52,20 +55,28 @@ class LowPassFilterConductor: ObservableObject, ProcessesPlayerInput {
     }
 }
 
-struct LowPassFilterView: View {
-    @StateObject var conductor: LowPassFilterConductor
+struct TanhDistortionView: View {
+    @StateObject var conductor: TanhDistortionConductor
 
     var body: some View {
         ScrollView {
             PlayerControls(conductor: conductor)
-            ParameterSlider(text: "Cutoff Frequency",
-                            parameter: self.$conductor.data.cutoffFrequency,
-                            range: 12.0...3_000.0,
-                            units: "Hertz")
-            ParameterSlider(text: "Resonance",
-                            parameter: self.$conductor.data.resonance,
-                            range: -20...40,
-                            units: "dB")
+            ParameterSlider(text: "Pregain",
+                            parameter: self.$conductor.data.pregain,
+                            range: 0.0...10.0,
+                            units: "Generic")
+            ParameterSlider(text: "Postgain",
+                            parameter: self.$conductor.data.postgain,
+                            range: 0.0...10.0,
+                            units: "Generic")
+            ParameterSlider(text: "Positive Shape Parameter",
+                            parameter: self.$conductor.data.positiveShapeParameter,
+                            range: -10.0...10.0,
+                            units: "Generic")
+            ParameterSlider(text: "Negative Shape Parameter",
+                            parameter: self.$conductor.data.negativeShapeParameter,
+                            range: -10.0...10.0,
+                            units: "Generic")
             ParameterSlider(text: "Mix",
                             parameter: self.$conductor.data.balance,
                             range: 0...1,
@@ -85,7 +96,7 @@ struct LowPassFilterView: View {
         .toolbar {
             ToolbarItemGroup(placement: .automatic) {
                 Button {
-                    DryWetMixView(dry: conductor.player, wet: conductor.filter, mix: conductor.dryWetMixer).frame(width: 800, height: 500).openInWindow(title: "DryWetMixer Graph", sender: self)
+                    DryWetMixView(dry: conductor.player, wet: conductor.distortion, mix: conductor.dryWetMixer).frame(width: 800, height: 500).openInWindow(title: "DryWetMixer Graph", sender: self)
                 } label: {
                     Image(systemName: "waveform.path")
                 }
@@ -97,7 +108,7 @@ struct LowPassFilterView: View {
                     }
                     
                     Button(action: {
-                        FFTView(conductor.filter).frame(width: 800, height: 300).openInWindow(title: "Filter FFT BAR Graph", sender: self)
+                        FFTView(conductor.distortion).frame(width: 800, height: 300).openInWindow(title: "Distortion FFT BAR Graph", sender: self)
                     }) {
                         Text("Filter FFT Bar")
                     }
@@ -117,3 +128,4 @@ struct LowPassFilterView: View {
         }
     }
 }
+
