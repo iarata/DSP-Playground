@@ -1,7 +1,12 @@
 ![DSP Playground](https://github.com/iarata/DSP-Playground/blob/main/.content/header.png?raw=true)
 
-DSP Playground is a project where you can manuplate audio files and add filters to it.
+![Platform](https://img.shields.io/badge/platform-macos-lightgrey)
 ![GitHub all releases](https://img.shields.io/github/downloads/iarata/DSP-Playground/total)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/iarata/DSP-Playground?include_prereleases)
+![GitHub top language](https://img.shields.io/github/languages/top/iarata/DSP-Playground)
+![GitHub issues](https://img.shields.io/github/issues/iarata/DSP-Playground)
+![GitHub](https://img.shields.io/github/license/iarata/DSP-Playground)
+
 
 ## Getting Started
 
