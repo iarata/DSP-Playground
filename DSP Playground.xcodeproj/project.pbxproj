@@ -21,7 +21,6 @@
 		BB2018FF26AC67FB000F2753 /* Cookbook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018F926AC67FB000F2753 /* Cookbook.swift */; };
 		BB20190026AC67FB000F2753 /* PlayerControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018FA26AC67FB000F2753 /* PlayerControls.swift */; };
 		BB20190226AC67FB000F2753 /* PlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018FC26AC67FB000F2753 /* PlotView.swift */; };
-		BB20190326AC67FB000F2753 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2018FD26AC67FB000F2753 /* ColorManager.swift */; };
 		BB20190526AC9E21000F2753 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20190426AC9E21000F2753 /* VisualEffectBlur.swift */; };
 		BB20190726ACC415000F2753 /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20190626ACC415000F2753 /* FilterModel.swift */; };
 		BB20190926AD0A77000F2753 /* LowPassFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20190826AD0A77000F2753 /* LowPassFilter.swift */; };
@@ -89,7 +88,6 @@
 		BB2018F926AC67FB000F2753 /* Cookbook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cookbook.swift; sourceTree = "<group>"; };
 		BB2018FA26AC67FB000F2753 /* PlayerControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerControls.swift; sourceTree = "<group>"; };
 		BB2018FC26AC67FB000F2753 /* PlotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotView.swift; sourceTree = "<group>"; };
-		BB2018FD26AC67FB000F2753 /* ColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		BB20190426AC9E21000F2753 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
 		BB20190626ACC415000F2753 /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 		BB20190826AD0A77000F2753 /* LowPassFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LowPassFilter.swift; sourceTree = "<group>"; };
@@ -186,7 +184,6 @@
 				BB2018F926AC67FB000F2753 /* Cookbook.swift */,
 				BB2018FA26AC67FB000F2753 /* PlayerControls.swift */,
 				BB2018FC26AC67FB000F2753 /* PlotView.swift */,
-				BB2018FD26AC67FB000F2753 /* ColorManager.swift */,
 			);
 			path = "Reusable Components";
 			sourceTree = "<group>";
@@ -576,7 +573,6 @@
 				BB20190F26AE268E000F2753 /* TanhDistortion.swift in Sources */,
 				BB2726F026A2E776003BA560 /* ExtraTEST.swift in Sources */,
 				BB24F43A26A5B98100CF3AD7 /* PythonPlot.swift in Sources */,
-				BB20190326AC67FB000F2753 /* ColorManager.swift in Sources */,
 				BB24F41626A3692700CF3AD7 /* Extentions.swift in Sources */,
 				BB24F41426A34B5700CF3AD7 /* DSPNotification.swift in Sources */,
 				BB24F41F26A3973C00CF3AD7 /* ConnectionManager.swift in Sources */,
