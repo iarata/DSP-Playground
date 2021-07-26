@@ -4,7 +4,7 @@
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/iarata/DSP-Playground?include_prereleases)
 ![GitHub top language](https://img.shields.io/github/languages/top/iarata/DSP-Playground)
 ![GitHub issues](https://img.shields.io/github/issues/iarata/DSP-Playground)
-![GitHub](https://img.shields.io/github/license/iarata/DSP-Playground)
+![GitHub](https://img.shields.io/badge/license-MIT-green)
 
 
 ## Getting Started
