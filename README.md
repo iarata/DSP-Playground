@@ -1,4 +1,4 @@
-![DSP Playground](https://github.com/iarata/DSP-Playground/blob/main/.content/dsp-header.png?raw=true)
+![DSP Playground](https://github.com/iarata/DSP-Playground/blob/main/.content/header.png?raw=true)
 
 ![Platform](https://img.shields.io/badge/platform-macos-lightgrey)
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/iarata/DSP-Playground?include_prereleases)
