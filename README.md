@@ -34,6 +34,8 @@ To be done later
 
 See also the list of [contributors](https://github.com/iarata/DSP-Playground/contributors) who participated in this project.
 
+Send me an email at mrex778@yahoo.ca if you would like to contirbute :) 
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
