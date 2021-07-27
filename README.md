@@ -20,6 +20,12 @@ Required OS: macOS 11.4 (BigSur)
 
 ### How to use
 
+
+![DSP Playground](https://github.com/iarata/DSP-Playground/blob/main/.content/main.png?raw=true)
+![DSP Playground](https://github.com/iarata/DSP-Playground/blob/main/.content/signal-freq.png?raw=true)
+![DSP Playground](https://github.com/iarata/DSP-Playground/blob/main/.content/fft.png?raw=true)
+
+
 To be done later
 
 ## Built with
