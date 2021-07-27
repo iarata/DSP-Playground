@@ -38,7 +38,7 @@ Send me an email at mrex778@yahoo.ca if you would like to contribute :)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the BSD 3-Clause "New" or "Revised" License - see the [LICENSE](LICENSE) file for details
 
 ## Acknowledgments
 
