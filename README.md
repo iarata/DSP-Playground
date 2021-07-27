@@ -10,7 +10,7 @@
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine.
-- From the [Releases](https://github.com/iarata/DSP-Playground/releases) section download the latest version and extract the zip file.
+- From the [Releases](https://github.com/iarata/DSP-Playground/releases) section download the latest version and open the .dmg file.
 - Drag and Drop the `DSP Playground.app` to your Applications folder
 - Find and run the app from Launchpad
 
